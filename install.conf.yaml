@@ -3,6 +3,9 @@
       relink: true
       force: true
 
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+
 - clean: ['~']
 
 - link:
@@ -33,10 +36,7 @@
     - grc
     - yq
 
-
 - shell:
-    - [git submodule update --init --recursive, Installing submodules]
-    - [sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)", Install oh-my-zsh]
     - [LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh) --yes, Install LunarVim]
     - [curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash, Install get Nerdfont]
     - [getnf -i Hack, Install Nerdfont Hack]

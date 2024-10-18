@@ -22,6 +22,12 @@ zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
 zinit snippet OMZP::git
 zinit snippet OMZL::directories.zsh
+zinit snippet OMZL::completion.zsh
+
+
+# https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#command-line-initial-mode
+# Always starting with insert mode for each command line
+ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 
 # info with: brew info zsh-completions
 if type brew &>/dev/null; then

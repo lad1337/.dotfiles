@@ -4,36 +4,7 @@
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 
-lvim.plugins = {
-  {
-    "ray-x/lsp_signature.nvim",
-    config = function()
-      require "lsp_signature".setup({
-        hint_prefix = {
-          above = "↙ ", -- when the hint is on the line above the current line
-          current = "← ", -- when the hint is on the same line
-          below = "↖ " -- when the hint is on the line below the current line
-        }
-      })
-    end,
-  },
-  {
-    "mrjones2014/nvim-ts-rainbow",
-  },
-  {
-    "lad1337/underwater-mod",
-  },
-  {
-    "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
-    config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        })
-    end
-  }
-}
+require 'plugins'
 
 lvim.keys.normal_mode["<leader>)"] = "<Plug>(nvim-surround-normal)iw)"
 lvim.keys.normal_mode["<leader>("] = "<Plug>(nvim-surround-normal)iw("
@@ -42,9 +13,10 @@ lvim.keys.normal_mode["<leader>["] = "<Plug>(nvim-surround-normal)iw["
 lvim.keys.normal_mode["<leader>'"] = "<Plug>(nvim-surround-normal)iw'"
 lvim.keys.normal_mode['<leader>"'] = '<Plug>(nvim-surround-normal)iw"'
 lvim.keys.visual_mode['<leader>"'] = 'c"<C-R>""<ESC>'
-lvim.keys.normal_mode["<leader>'"] = "c'<C-R>\"'<ESC>"
+lvim.keys.visual_mode["<leader>'"] = "c'<C-R>\"'<ESC>"
 
 lvim.builtin.treesitter.rainbow.enable = true
+lvim.format_on_save.enabled = true
 lvim.lsp.on_attach_callback = function(client, bufnr)
   -- …
   require "lsp_signature".on_attach()
