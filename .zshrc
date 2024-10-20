@@ -1,5 +1,7 @@
 # vim: ft=sh
 # THE PATH
+export XDG_CONFIG_HOME="$HOME/.config"
+export DOT="$HOME/.dotfiles"
 export GOPATH="$HOME/.gopath"
 export GOBIN="$GOPATH/bin"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin:$DOT/bin:$HOME/.local/bin:$HOME/.poetry/bin:$GOBIN:$PATH"
@@ -9,7 +11,6 @@ export ZSH="$HOME/.oh-my-zsh"
 eval "$(starship init zsh)"
 
 DISABLE_UPDATE_PROMPT=true
-export DOT="$HOME/.dotfiles"
 # https://docs.brew.sh/Analytics
 export HOMEBREW_NO_ANALYTICS=1
 
@@ -17,6 +18,7 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
+# plugins
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode

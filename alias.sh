@@ -33,3 +33,4 @@ alias yaml2json="python -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdi
 alias vim='lvim -O'
 alias e='vim'
 alias watch='watch '
+alias gdc='gd --cached'
