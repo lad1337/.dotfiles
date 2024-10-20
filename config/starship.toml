@@ -13,7 +13,7 @@ dir = '#00afff'
 [character]
 success_symbol = "[](fg:bg)" # ➜ ▶
 error_symbol= "[](fg:bg)" # "➜" "▶"
-vimcmd_symbol = "[](fg:blue)"
+vimcmd_symbol = "[](fg:bg)"
 
 [cmd_duration]
 format = "[](fg:divider bg:bg)[ $duration ]($style)"
@@ -21,15 +21,15 @@ style = "fg:#9b9b9b bg:bg"
 
 [custom]
 [custom.direnv]
-format = "[](fg:#7a7a7a bg:#444444)[ $symbol ]($style)"
-style = "fg:#7a7a7a bg:#444444"
-symbol = "[▼](fg:white bg:#444444)"
+format = "[](fg:divider bg:bg)[ $symbol ]($style)"
+style = "fg:divider bg:bg"
+symbol = "[▼](fg:white bg:bg)"
 when = "test \"$DIRENV_WATCHES\" != \"\""
 
 [custom.vim_shell]
-format = "[](fg:#7a7a7a bg:#444444)[ $symbol ]($style)"
-style = "fg:#7a7a7a bg:#444444"
-symbol = "[](fg:green bg:#444444)"
+format = "[](fg:#7a7a7a bg:bg)[ $symbol ]($style)"
+style = "fg:divider bg:bg"
+symbol = "[](fg:green bg:bg)"
 when = "test \"$VIMRUNTIME\" != \"\""
 
 [directory]
@@ -42,7 +42,7 @@ format = "[](fg:divider bg:bg)[ $branch(:$remote_branch) ]($style)"
 style = "fg:success bg:bg"
 
 [git_metrics]
-added_style = "fg:#b4951e bg:#444444"
+added_style = "fg:#b4951e bg:bg"
 deleted_style = "fg:bright-red bg:235"
 disabled = false
 format = "([+$added]($added_style))[]($added_style)"
@@ -52,25 +52,24 @@ ahead = "⇡$count"
 behind = "⇣$count"
 diverged = "⇡$ahead_count⇣$behind_count"
 format = "[$all_status$ahead_behind ]($style)"
-modified = "[!$count ](fg:#b4951e bg:#444444)"
-style = "fg:#b4951e bg:#444444"
-untracked = "[?$count ](fg:#00afff bg:#444444)"
+modified = "[!$count ](fg:#b4951e bg:bg)"
+style = "fg:#b4951e bg:bg"
+untracked = "[?$count ](fg:#00afff bg:bg)"
 
 [hg_branch]
 format = "[ $symbol$branch ]($style)"
 symbol = " "
 
 [nix_shell]
-format = "[](fg:#7a7a7a bg:#444444)[ $state $symbol ]($style)"
-style = "fg:#5690ad bg:#444444"
+format = "[](fg:divider bg:bg)[ $state $symbol ]($style)"
+style = "fg:#5690ad bg:bg"
 symbol = "❄️"
 
 [status]
 disabled = false
-format = "[ $signal_name $symbol ]($style)"
+format = "[ $signal_name $symbol ](bg:bg)"
 map_symbol = true
-sigint_symbol = "[✘](fg:#d60202 bg:#444444)"
-style = "bg:#444444"
-success_symbol = "[✔](fg:green bg:#444444)"
-symbol = "[✘](fg:#d60202 bg:#444444)"
+sigint_symbol = "[✘](fg:#d60202 bg:bg)"
+success_symbol = "[✔](fg:green bg:bg)"
+symbol = "[✘](fg:#d60202 bg:bg)"
 
