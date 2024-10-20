@@ -46,6 +46,13 @@ dap.configurations.gdscript = {
     launch_scene = true,
   }
 }
+local dapui = require("dapui")
+dap.listeners.before.event_terminated.dapui_config = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+  dapui.close()
+end
 
 -- LSP Mappings.
 -- https://forum.godotengine.org/t/how-to-get-the-godot-lsp-to-work-with-nvim-lsp/7114/2
