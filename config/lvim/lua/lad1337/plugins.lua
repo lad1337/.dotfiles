@@ -43,5 +43,13 @@ lvim.plugins = {
       }
     end
   },
+  {
+    url = "https://git.sr.ht/~lad1337/lsp_lines.nvim",
+    branch = "overlay",
+    -- dir = "~/workspace/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+    end,
+  },
   -- if ever want to try leap.nvim again check https://github.com/LazyVim/LazyVim/issues/2379#issuecomment-1898491969
 }
