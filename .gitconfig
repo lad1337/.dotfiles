@@ -53,3 +53,6 @@
     uncommit = reset --soft HEAD^     # go back before last commit, with files in uncommitted state
     delete-remote-tag = push --delete origin
     nehma = checkout
+	stash = stash --all
+[rerere]
+	enabled = true
