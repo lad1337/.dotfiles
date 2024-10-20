@@ -5,7 +5,7 @@
 	email = lad1337@gmail.com
 [core]
     excludesfile = ~/.gitignore
-    editor = `brew --prefix nvim`/bin/nvim
+    editor = lvim
     pager = delta
 [interactive]
     diffFilter = delta --color-only
