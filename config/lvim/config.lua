@@ -97,3 +97,13 @@ require 'lspconfig'.gdscript.setup {
   flags = lsp_flags,
   filetypes = { "gd", "gdscript", "gdscript3" },
 }
+-- https://github.com/wowthatsabigturtle/vim-config/blob/1fca3ab01229604695e5402474a394ab37ffef5f/init.lua#L520C1-L528C4
+-- Enable neovim to be the external editor for Godot, if the cwd has a project.godot file
+if vim.fn.filereadable(vim.fn.getcwd() .. "/project.godot") == 1 then
+  local addr = vim.fn.expand('$HOME/.cache/godot.pipe')
+  if vim.fn.has("win32") == 1 then
+    -- Windows can't pipe so use localhost. Make sure this is configured in Godot
+    addr = "127.0.0.1:6004"
+  end
+  vim.fn.serverstart(addr)
+end
