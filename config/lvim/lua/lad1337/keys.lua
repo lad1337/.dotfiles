@@ -16,7 +16,6 @@ vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
 
 local dap = require("dap")
 vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Start/Continue" })
@@ -35,5 +34,12 @@ lvim.builtin.which_key.mappings['f'] = {
 lvim.builtin.which_key.mappings['B'] = {
   dap.toggle_breakpoint,
   "Debug: Toggle Breakpoint",
+
+}
+lvim.builtin.which_key.mappings['S'] = {
+  function()
+    vim.cmd(":split +:bprev")
+  end,
+  "Split it!",
 
 }
