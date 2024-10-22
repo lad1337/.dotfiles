@@ -52,12 +52,18 @@ lvim.plugins = {
     end,
   },
   {
-    -- "chentoast/marks.nvim",
+    -- "lad1337/marks.nvim",
     dir = "~/workspace/marks.nvim",
+    branch = "everything",
     event = "VeryLazy",
-    opts = {
-      preview_mappings = { { 'n', 'q', ':bd<CR>' } },
-    },
+    config = function()
+      local opts = {
+        preview_mappings = { { 'n', 'q', ':bd<CR>' } },
+        preview_size = { 0.8, 0.7 }
+      }
+      require "marks".setup(opts)
+      require "telescope".load_extension("marks_nvim")
+    end,
   },
   -- if ever want to try leap.nvim again check https://github.com/LazyVim/LazyVim/issues/2379#issuecomment-1898491969
 }
