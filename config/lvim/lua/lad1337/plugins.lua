@@ -51,5 +51,10 @@ lvim.plugins = {
       require("lsp_lines").setup()
     end,
   },
+  {
+    "chentoast/marks.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
   -- if ever want to try leap.nvim again check https://github.com/LazyVim/LazyVim/issues/2379#issuecomment-1898491969
 }
