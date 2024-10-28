@@ -1,6 +1,6 @@
 # .dotfiles
 
-useing [dotbot](https://github.com/anishathalye/dotbot)
+using [dotbot](https://github.com/anishathalye/dotbot)
 
 ## install
 ```sh
@@ -8,3 +8,5 @@ useing [dotbot](https://github.com/anishathalye/dotbot)
     cd .dotfiles
     ./install
 ```
+
+This is bud hammer

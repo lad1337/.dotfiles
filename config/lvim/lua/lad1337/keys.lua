@@ -1,5 +1,5 @@
-lvim.keys.normal_mode["<leader>)"] = "<Plug>(nvim-surround-normal)iw)"
 lvim.keys.normal_mode["<leader>("] = "<Plug>(nvim-surround-normal)iw("
+lvim.keys.normal_mode["<leader>)"] = "<Plug>(nvim-surround-normal)iw)"
 lvim.keys.normal_mode["<leader>]"] = "<Plug>(nvim-surround-normal)iw]"
 lvim.keys.normal_mode["<leader>["] = "<Plug>(nvim-surround-normal)iw["
 lvim.keys.normal_mode["<leader>'"] = "<Plug>(nvim-surround-normal)iw'"
@@ -23,23 +23,23 @@ vim.keymap.set("n", "<F12>", dap.continue, { desc = "Debug: Start/Continue" })
 vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Debug: Step Into" })
 vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Debug: Step Over" })
 vim.keymap.set("n", "<F8>", dap.terminate, { desc = "Debug: Terminate" })
---
+
+local leader = lvim.builtin.which_key.mappings
 -- https://github.com/LunarVim/LunarVim/issues/3351#issuecomment-1902514210
-lvim.builtin.which_key.mappings['f'] = {
+leader['f'] = {
   function()
     require("lvim.core.telescope.custom-finders").find_project_files { previewer = true, show_untracked = true }
   end,
   "Find File",
 }
-lvim.builtin.which_key.mappings['B'] = {
+leader['B'] = {
   dap.toggle_breakpoint,
   "Debug: Toggle Breakpoint",
 
 }
-lvim.builtin.which_key.mappings['S'] = {
-  function()
-    vim.cmd(":split +:bprev")
-  end,
-  "Split it!",
+leader['SS'] = { function() vim.cmd(":split +:bprev") end, "Split it!" }
+leader['SV'] = { function() vim.cmd(":vsplit +:bprev") end, "VSplit it!" }
 
-}
+vim.notify = require('notify')
+-- require('telescope').load_extension('remote_godot')
+vim.keymap.set('n', 'grs', ':Telescope remote_godot<CR>', opts)

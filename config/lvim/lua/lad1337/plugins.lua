@@ -59,11 +59,45 @@ lvim.plugins = {
     config = function()
       local opts = {
         preview_mappings = { { 'n', 'q', ':bd<CR>' } },
-        preview_size = { 0.8, 0.7 }
+        preview_size = { 0.8, 0.7 },
+        sign_priority = 0,
       }
       require "marks".setup(opts)
       require "telescope".load_extension("marks_nvim")
     end,
   },
+  {
+    'rcarriga/nvim-notify',
+    config = function()
+      vim.notify = require("notify")
+    end,
+  },
+  {
+    'mrded/nvim-lsp-notify',
+    dependencies = { 'rcarriga/nvim-notify' },
+    config = function()
+      require('lsp-notify').setup()
+    end
+  },
+  {
+    'BrunoKrugel/nvim-colorizer.lua',
+    config = function()
+      require('colorizer').setup({
+        user_default_options = {
+          rgb_fn = true,
+          mode = 'virtualtext',
+
+        }
+      })
+    end
+  },
+  {
+    dir = '~/workspace/remote-godot-scene-run.nvim',
+    main = 'remote_godot',
+    opts = { port = 1338 }
+  },
+  -- { 'f3fora/cmp-spell' }, not working cmp pluginf for spell
+  -- { 'octaltree/cmp-look' } any plugin that adds registers a source breaks all of cmp
+  -- this looks like an issue with lvim and the separate table it has
   -- if ever want to try leap.nvim again check https://github.com/LazyVim/LazyVim/issues/2379#issuecomment-1898491969
 }

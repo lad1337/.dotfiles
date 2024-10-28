@@ -1,0 +1,11 @@
+#!/usr/bin/env bash#!/bin/bash
+# https://unix.stackexchange.com/a/19869
+PROCESS=Godot
+number=$(ps aux | grep -v grep | grep -ci $PROCESS)
+
+if pgrep $PROCESS; then
+    echo "$PROCESS is already running.";
+else 
+    open project.godot;
+fi
+~/.local/bin/lvim .

@@ -4,9 +4,25 @@
 -- Discord: https://discord.com/invite/Xb9B4Ny
 
 require("lad1337.options")
-require("lad1337.keys")
 require("lad1337.plugins")
+require("lad1337.keys")
 
+vim.opt.spell = true
+vim.opt.spelllang = { "en_us" }
+-- this was a experiment to get spell cmp to work with lvim, see plugin file
+-- vim.list_extend(
+--   lvim.builtin.cmp.sources,
+--   {
+--     name = "spell",
+--     option = {
+--       keep_all_entries = false,
+--       enable_in_context = function()
+--         return true
+--       end,
+--       preselect_correct_word = true,
+--     },
+--   }
+-- )
 -- a version of cursor hold autocommand with custom delay
 vim.g.hover_timeout = 0
 if vim.g.hover_timeout > 0 then
@@ -42,8 +58,14 @@ dap.configurations.gdscript = {
     type = "godot",
     request = "launch",
     name = "Launch scene",
-    project = "${workspaceFolder}",
-    launch_scene = true,
+    scene = function()
+      local path = vim.fn.input({
+        prompt = 'Path to scene: ',
+        default = vim.fn.getcwd() .. '/',
+        completion = 'file'
+      })
+      return (path and path ~= "") and path or dap.ABORT
+    end
   }
 }
 local dapui = require("dapui")
@@ -95,6 +117,7 @@ local lsp_flags = {
 require 'lspconfig'.gdscript.setup {
   on_attach = on_attach,
   flags = lsp_flags,
+  formatCommand = "gdformat -l 80 -", formatStdin = true,
   filetypes = { "gd", "gdscript", "gdscript3" },
 }
 -- https://github.com/wowthatsabigturtle/vim-config/blob/1fca3ab01229604695e5402474a394ab37ffef5f/init.lua#L520C1-L528C4
@@ -105,5 +128,10 @@ if vim.fn.filereadable(vim.fn.getcwd() .. "/project.godot") == 1 then
     -- Windows can't pipe so use localhost. Make sure this is configured in Godot
     addr = "127.0.0.1:6004"
   end
-  vim.fn.serverstart(addr)
+
+  if pcall(vim.fn.serverstart, addr) then
+    vim.notify("Godot pipe connected", "success")
+  else
+    vim.notify("Godot pipe already connected on another instance", "error")
+  end
 end
