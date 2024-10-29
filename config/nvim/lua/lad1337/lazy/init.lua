@@ -4,9 +4,23 @@ return {
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
   { 'mrjones2014/nvim-ts-rainbow' },
   {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+  },
+  {
     'zoriya/virtcolumn.nvim',
     config = function()
       vim.cmd 'set cc=100'
+    end,
+  },
+  {
+    'kylechui/nvim-surround',
+    version = '*', -- Use for stability; omit to use `main` branch for the latest features
+    event = 'VeryLazy',
+    config = function()
+      require('nvim-surround').setup {
+        -- Configuration here, or leave empty to use defaults
+      }
     end,
   },
   { -- Autoformat
@@ -33,7 +47,7 @@ return {
         local lsp_format_opt
         if disable_filetypes[vim.bo[bufnr].filetype] then
           lsp_format_opt = 'never'
-        else
+          -- else
           lsp_format_opt = 'fallback'
         end
         return {
@@ -99,6 +113,7 @@ return {
     end,
   },
   'f3fora/cmp-spell',
+  enabled = false,
   {
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
