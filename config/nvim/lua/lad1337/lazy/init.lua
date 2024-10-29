@@ -1,5 +1,4 @@
 return {
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   { 'nvim-lua/plenary.nvim', name = 'plenary' },
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
   { 'mrjones2014/nvim-ts-rainbow' },

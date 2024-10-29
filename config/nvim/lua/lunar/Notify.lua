@@ -3,7 +3,7 @@ local C = require 'lunar.palette'
 local Notify = {
   NotifyERRORBorder = { fg = '#8A1F1F' },
   NotifyWARNBorder = { fg = '#79491D' },
-  NotifyINFOBorder = { fg = '#FFFFFF' },
+  NotifyINFOBorder = { fg = C.ui_blue },
   NotifyDEBUGBorder = { fg = C.gray },
   NotifyTRACEBorder = { fg = '#4F3552' },
   NotifyERRORIcon = { fg = C.error_red },
@@ -19,4 +19,3 @@ local Notify = {
 }
 
 return Notify
-

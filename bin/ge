@@ -8,4 +8,4 @@ if pgrep $PROCESS; then
 else 
     open project.godot;
 fi
-~/.local/bin/lvim .
+nvim .

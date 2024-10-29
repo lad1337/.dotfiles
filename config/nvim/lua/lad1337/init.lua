@@ -32,4 +32,3 @@ vim.diagnostic.config {
     strip = true,
   },
 }
-local lunar = require 'lunar'
