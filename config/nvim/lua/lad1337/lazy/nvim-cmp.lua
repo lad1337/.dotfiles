@@ -1,38 +1,37 @@
 return { -- Autocompletion
+  -- dependency structure found in https://github.com/catgoose/nvim/blob/main/lua/plugins/cmp.lua
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
   dependencies = {
-    -- Snippet Engine & its associated nvim-cmp source
     {
-      'L3MON4D3/LuaSnip',
-      build = (function()
-        -- Build Step is needed for regex support in snippets.
-        -- This step is not supported in many windows environments.
-        -- Remove the below condition to re-enable on windows.
-        if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
-          return
-        end
-        return 'make install_jsregexp'
-      end)(),
+      'hrsh7th/cmp-nvim-lsp',
       dependencies = {
-        -- `friendly-snippets` contains a variety of premade snippets.
-        --    See the README about individual language/framework/plugin snippets:
-        --    https://github.com/rafamadriz/friendly-snippets
-        -- {
-        --   'rafamadriz/friendly-snippets',
-        --   config = function()
-        --     require('luasnip.loaders.from_vscode').lazy_load()
-        --   end,
-        -- },
+        'saadparwaiz1/cmp_luasnip',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-buffer',
+        {
+          'L3MON4D3/LuaSnip',
+          opts = { friendly_snippets = true },
+          build = (function()
+            -- Build Step is needed for regex support in snippets.
+            -- This step is not supported in many windows environments.
+            -- Remove the below condition to re-enable on windows.
+            if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
+              return
+            end
+            return 'make install_jsregexp'
+          end)(),
+          dependencies = {
+            {
+              'rafamadriz/friendly-snippets',
+              config = function()
+                require('luasnip.loaders.from_vscode').lazy_load()
+              end,
+            },
+          },
+        },
       },
     },
-    'saadparwaiz1/cmp_luasnip',
-
-    -- Adds other completion capabilities.
-    --  nvim-cmp does not ship with all sources by default. They are split
-    --  into multiple repos for maintenance purposes.
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-path',
   },
   config = function()
     -- See `:help cmp`
@@ -60,8 +59,6 @@ return { -- Autocompletion
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
 
-        -- If you prefer more traditional completion keymaps,
-        -- you can uncomment the following lines
         ['<CR>'] = cmp.mapping.confirm { select = true },
         ['<Tab>'] = cmp.mapping.select_next_item(),
         ['<S-Tab>'] = cmp.mapping.select_prev_item(),
@@ -95,22 +92,51 @@ return { -- Autocompletion
       },
       sources = {
         {
+          name = 'luasnip',
+          group_index = 1,
+          option = { use_show_condition = true },
+          entry_filter = function()
+            local context = require 'cmp.config.context'
+            return not context.in_treesitter_capture 'string' and not context.in_syntax_group 'String'
+          end,
+        },
+        {
+          name = 'nvim_lsp',
+          group_index = 2,
+        },
+        {
+          name = 'nvim_lua',
+          group_index = 3,
+        },
+        {
+          name = 'treesitter',
+          keyword_length = 4,
+          group_index = 4,
+        },
+        {
+          name = 'path',
+          keyword_length = 4,
+          group_index = 4,
+        },
+        {
+          name = 'buffer',
+          keyword_length = 3,
+          group_index = 5,
+          option = {
+            get_bufnrs = function()
+              local bufs = {}
+              for _, win in ipairs(vim.api.nvim_list_wins()) do
+                bufs[vim.api.nvim_win_get_buf(win)] = true
+              end
+              return vim.tbl_keys(bufs)
+            end,
+          },
+        },
+        {
           name = 'lazydev',
-          -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
+          keyword_length = 2,
           group_index = 0,
         },
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-        { name = 'path' },
-        -- {
-        --   name = 'spell',
-        --   option = {
-        --     keep_all_entries = false,
-        --     enable_in_context = function()
-        --       return true
-        --     end,
-        --   },
-        -- },
       },
     }
   end,
