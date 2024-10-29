@@ -3,7 +3,14 @@
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
-local k = vim.keymap.set
+local k = function(mode, lhs, rhs, desc)
+  opts = { desc = desc }
+  if type(desc) == 'table' then
+    opts = desc
+  end
+  vim.keymap.set(mode, lhs, rhs, opts)
+end
+
 k('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
@@ -48,8 +55,8 @@ k('n', '<leader>[', '<Plug>(nvim-surround-normal)iw[')
 k('n', "<leader>'", "<Plug>(nvim-surround-normal)iw'")
 k('n', '<leader>"', '<Plug>(nvim-surround-normal)iw"')
 
-k('n', '<leader>q', vim.cmd.quit)
-k('n', '<leader>w', vim.cmd.write)
+k('n', '<leader>q', vim.cmd.quit, 'Quit')
+k('n', '<leader>w', vim.cmd.write, 'Write')
 
 k('n', '<leader>SS', function()
   vim.cmd ':split +:bprev'

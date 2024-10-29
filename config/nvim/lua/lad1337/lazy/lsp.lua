@@ -1,4 +1,5 @@
 return {
+  'tpope/vim-sleuth',
   {
     'folke/lazydev.nvim',
     opts = {
@@ -27,6 +28,18 @@ return {
     config = function()
       require('nvim-navic').setup {
         lsp = { auto_attach = true },
+      }
+    end,
+  },
+  {
+    'rmagatti/goto-preview',
+    event = 'BufEnter',
+    config = function()
+      require('goto-preview').setup {
+        default_mappings = true,
+        post_open_hook = function(bufnr, winnr)
+          vim.api.nvim_buf_set_keymap(bufnr, 'n', 'q', ':bd<cr>', {})
+        end,
       }
     end,
   },
@@ -88,7 +101,7 @@ return {
 
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.
-          map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+          map('<leader>Ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
