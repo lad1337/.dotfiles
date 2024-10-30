@@ -3,6 +3,7 @@ vim.cmd.colorscheme 'lunar'
 local icons = require 'lad1337.icons'
 require 'lad1337.set'
 require 'lad1337.keys'
+
 require 'lad1337.init_lazy'
 require('lazy').setup {
   spec = 'lad1337.lazy',

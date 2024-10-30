@@ -3,10 +3,6 @@ return {
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
   { 'mrjones2014/nvim-ts-rainbow' },
   {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-  },
-  {
     'zoriya/virtcolumn.nvim',
     config = function()
       vim.cmd 'set cc=100'
