@@ -65,16 +65,16 @@ return {
     },
   },
   {
-    -- url = 'https://git.sr.ht/~lad1337/lsp_lines.nvim',
+    url = 'https://git.sr.ht/~lad1337/lsp_lines.nvim',
+    -- dir = '~/workspace/lsp_lines.nvim',
     branch = 'overlay',
-    dir = '~/workspace/lsp_lines.nvim',
     config = function()
       require('lsp_lines').setup()
     end,
   },
   {
-    -- "lad1337/marks.nvim",
-    dir = '~/workspace/marks.nvim',
+    'lad1337/marks.nvim',
+    -- dir = '~/workspace/marks.nvim',
     branch = 'everything',
     event = 'VeryLazy',
     config = function()
