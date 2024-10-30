@@ -111,13 +111,13 @@ return {
       }
     end,
   },
-  'f3fora/cmp-spell',
-  enabled = false,
+  { 'f3fora/cmp-spell', enabled = false },
   {
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
     config = function()
       require('ibl').setup()
     end,
+    enabled = true,
   },
 }

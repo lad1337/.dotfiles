@@ -48,12 +48,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-k('n', '<leader>(', '<Plug>(nvim-surround-normal)iw(')
-k('n', '<leader>)', '<Plug>(nvim-surround-normal)iw)')
-k('n', '<leader>]', '<Plug>(nvim-surround-normal)iw]')
-k('n', '<leader>[', '<Plug>(nvim-surround-normal)iw[')
-k('n', "<leader>'", "<Plug>(nvim-surround-normal)iw'")
-k('n', '<leader>"', '<Plug>(nvim-surround-normal)iw"')
+k('n', '<leader>(', '<Plug>(nvim-surround-normal)iw(', 'Surround word with )')
+k('n', '<leader>)', '<Plug>(nvim-surround-normal)iw)', 'Surround work with (')
+k('n', '<leader>]', '<Plug>(nvim-surround-normal)iw]', 'Surround word with ]')
+k('n', '<leader>[', '<Plug>(nvim-surround-normal)iw[', 'Surround word with [')
+k('n', "<leader>'", "<Plug>(nvim-surround-normal)iw'", "Surround word with '")
+k('n', '<leader>"', '<Plug>(nvim-surround-normal)iw"', 'Surround word with "')
 
 k('n', '<leader>q', vim.cmd.quit, 'Quit')
 k('n', '<leader>w', vim.cmd.write, 'Write')
