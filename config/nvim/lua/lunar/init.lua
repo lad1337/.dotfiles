@@ -13,17 +13,6 @@ M.setup = function()
   vim.g.colors_name = 'lunar'
 
   theme.set_highlights()
-  local utils = require 'lunar.util'
-  local modules = {
-    'Notify',
-    'IndentBlankline',
-    'Telescope',
-    'Cmp',
-  }
-  for _, name in ipairs(modules) do
-    utils.initialise(require('lunar.' .. name))
-  end
 end
 
 return M
-
