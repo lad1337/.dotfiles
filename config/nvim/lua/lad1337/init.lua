@@ -33,3 +33,11 @@ vim.diagnostic.config {
     strip = true,
   },
 }
+
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = 'rounded',
+  max_width = 100, -- this is an absolute value -.-
+})
+
+-- automatically resize windows equally when terminal resizes
+vim.api.nvim_create_autocmd('VimResized', { command = 'wincmd =' })

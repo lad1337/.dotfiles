@@ -12,9 +12,18 @@ local k = function(mode, lhs, rhs, desc)
 end
 
 k('n', '<Esc>', '<cmd>nohlsearch<CR>')
+k('n', '|', '<cmd>Trouble symbols toggle focus=true<cr>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+k('n', '<leader>i', function()
+  vim.diagnostic.open_float(nil, {
+    focus = false,
+    scope = 'cursor',
+    border = 'rounded',
+    max_width = 100,
+  })
+end, 'Diagnostics float')
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -59,8 +68,9 @@ k('n', '<leader>q', vim.cmd.quit, 'Quit')
 k('n', '<leader>w', vim.cmd.write, 'Write')
 
 k('n', '<leader>SS', function()
-  vim.cmd ':split +:bprev'
-end)
-k('n', '<leader>SS', function()
   vim.cmd ':vsplit +:bprev'
 end)
+-- vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<cr>')
+-- k('n', '<leader>a', '<cmd>lspsaga code_action<cr>', 'code action')
+-- k('n', '[e', '<cmd>lspsaga diagnostic_jump_next<cr>', 'next diagnostic')
+-- k('n', ']e', '<cmd>lspsaga diagnostic_jump_prev<cr>', 'prev diagnostic')
