@@ -30,7 +30,7 @@ alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say flus
 # https://www.commandlinefu.com/commands/view/12218/convert-yaml-to-json
 alias yaml2json="python -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=4)'"
 # vim
-alias vim='lvim -O'
+alias vim='nvim -O'
 alias e='vim'
 alias watch='watch '
 alias gdc='gd --cached'
