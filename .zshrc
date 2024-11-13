@@ -8,7 +8,12 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/s
 export PATH=$PATH:/opt/homebrew/bin
 
 export ZSH="$HOME/.oh-my-zsh"
-eval "$(starship init zsh)"
+# Check that the function `starship_zle-keymap-select()` is defined.
+# xref: https://github.com/starship/starship/issues/3418
+type starship_zle-keymap-select >/dev/null || \
+  {
+    eval "$(starship init zsh)"
+  }
 
 DISABLE_UPDATE_PROMPT=true
 # https://docs.brew.sh/Analytics
@@ -26,6 +31,9 @@ zinit light jeffreytse/zsh-vi-mode
 zinit snippet OMZP::git
 zinit snippet OMZL::directories.zsh
 zinit snippet OMZL::completion.zsh
+# zsh-fzf-history-search
+zinit ice lucid wait'0'
+zinit light joshskidmore/zsh-fzf-history-search
 
 
 # https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#command-line-initial-mode
