@@ -70,6 +70,7 @@ k('n', '<leader>w', vim.cmd.write, 'Write')
 k('n', '<leader>SS', function()
   vim.cmd ':vsplit +:bprev'
 end)
+k('n', '<C-p>', 'viwp')
 -- vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<cr>')
 -- k('n', '<leader>a', '<cmd>lspsaga code_action<cr>', 'code action')
 -- k('n', '[e', '<cmd>lspsaga diagnostic_jump_next<cr>', 'next diagnostic')
