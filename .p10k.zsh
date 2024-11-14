@@ -18,6 +18,12 @@
 [[ ! -o 'no_brace_expand' ]] || p10k_config_opts+=('no_brace_expand')
 'builtin' 'setopt' 'no_aliases' 'no_sh_glob' 'brace_expand'
 
+cyan="#2ac3de"
+purple="#9976d6"
+green="#009933"
+orange="#ff9e64"
+grey="#3d3d3d"
+
 () {
   emulate -L zsh -o extended_glob
 
@@ -214,19 +220,19 @@
 
   ##################################[ dir: current directory ]##################################
   # Current directory background color.
-  typeset -g POWERLEVEL9K_DIR_BACKGROUND=4
+  typeset -g POWERLEVEL9K_DIR_BACKGROUND=$grey
   # Default current directory foreground color.
-  typeset -g POWERLEVEL9K_DIR_FOREGROUND=0
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND=$cyan
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
   # Replace removed segment suffixes with this symbol.
   typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
   # Color of the shortened directory segments.
-  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=0
+  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=$cyan
   # Color of the anchor directory segments. Anchor segments are never shortened. The first
   # segment is always an anchor.
-  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=0
+  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=$cyan
   # Display anchor directory segments in bold.
   typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=false
   # Don't shorten directories that contain any of these files. They are anchors.
@@ -353,10 +359,10 @@
 
   #####################################[ vcs: git status ]######################################
   # Version control background colors.
-  typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=2
-  typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=3
-  typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=2
-  typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=3
+  typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=$cyan
+  typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=$purple
+  typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=$green
+  typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=$orange
   typeset -g POWERLEVEL9K_VCS_LOADING_BACKGROUND=8
 
   # Branch icon. Set this parameter to '\UE0A0 ' for the popular Powerline branch icon.
