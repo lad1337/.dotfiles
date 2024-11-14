@@ -19,7 +19,7 @@ export HOMEBREW_NO_ANALYTICS=1
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-plugins=(git zsh-syntax-highlighting vi-mode)
+plugins=(git zsh-syntax-highlighting vi-mode colored-man-pages zsh-fzf-history-search)
 
 export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:"
 # https://github.com/bhilburn/powerlevel9k
