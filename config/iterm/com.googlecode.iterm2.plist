@@ -6,6 +6,8 @@
 	<true/>
 	<key>AboutToPasteTabsWithCancel_selection</key>
 	<integer>2</integer>
+	<key>AutoCommandHistory</key>
+	<false/>
 	<key>CheckTestRelease</key>
 	<true/>
 	<key>ClickToSelectCommand</key>
@@ -780,6 +782,8 @@
 			<false/>
 			<key>Shortcut</key>
 			<string></string>
+			<key>Show Mark Indicators</key>
+			<false/>
 			<key>Silence Bell</key>
 			<false/>
 			<key>Sync Title</key>
@@ -874,7 +878,6 @@
 	<key>ToolbeltTools</key>
 	<array>
 		<string>Notes</string>
-		<string>Jobs</string>
 	</array>
 	<key>UseBorder</key>
 	<false/>
