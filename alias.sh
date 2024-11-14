@@ -1,3 +1,6 @@
+alias zr="source ~/.zshrc"
+alias ze="$EDITOR ~/.zshrc"
+
 alias ls='ls --color=auto'
 alias repl="ipython"
 alias last-stash="git stash show 'stash@{0}' -p"

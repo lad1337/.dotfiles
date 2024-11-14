@@ -5,8 +5,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export DOT="$HOME/.dotfiles"
 export GOPATH="$HOME/.gopath"
 export GOBIN="$GOPATH/bin"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin:$DOT/bin:$HOME/.local/bin:$HOME/.poetry/bin:$GOBIN:$PATH"
-export PATH=$PATH:/opt/homebrew/bin
+export PATH=/opt/homebrew/bin:$PATH
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$HOME/bin:$DOT/bin:$HOME/.local/bin:$HOME/.poetry/bin:$GOBIN:$PATH"
 # not seeting theme as the plugin is installed outside of the ZSH/plugin dir
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_CUSTOM="$HOME/.dotfiles/oh-my-zsh/custom"
@@ -17,11 +17,12 @@ export EDITOR=nvim
 # https://docs.brew.sh/Analytics
 export HOMEBREW_NO_ANALYTICS=1
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-# source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 plugins=(git zsh-syntax-highlighting vi-mode colored-man-pages zsh-fzf-history-search)
 
-export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # https://github.com/bhilburn/powerlevel9k
 : '
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
@@ -34,9 +35,6 @@ POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-untracked git-aheadbehind git
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh nix_shell dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs virtualenv kubecontext)
 '
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -49,26 +47,11 @@ if type brew &>/dev/null; then
   compinit
 fi
 
-# overwrite vcs state colors as theme does not have a nice yellow
-# https://github.com/Powerlevel9k/powerlevel9k/blob/3057e8fc07374e9c580790a023cb85998ca91fc8/powerlevel9k.zsh-theme#L1536
-typeset -gAH vcs_states
-  vcs_states=(
-    'clean'         'green'
-    'modified'      'cyan'
-    'untracked'     'green'
-  )
-
-
 # zsh-manage
 alias zr="source ~/.zshrc"
 alias ze="$EDITOR ~/.zshrc"
 
-# langauage stuff
-# python virtual env stuff
-# we speak english
-#export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
-# bat color theme
 # https://github.com/sharkdp/bat#highlighting-theme
 export BAT_THEME="OneHalfDark"
 
@@ -100,6 +83,5 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
-
 
 source $ZSH/oh-my-zsh.sh
