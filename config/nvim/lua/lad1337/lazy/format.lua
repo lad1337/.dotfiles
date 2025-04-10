@@ -23,7 +23,7 @@ return {
         local lsp_format_opt
         if disable_filetypes[vim.bo[bufnr].filetype] then
           lsp_format_opt = 'never'
-          -- else
+        else
           lsp_format_opt = 'fallback'
         end
         return {

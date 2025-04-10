@@ -44,6 +44,19 @@ return {
     end,
   },
   {
+    'nvimtools/none-ls.nvim',
+    dependencies = { 'mason.nvim' },
+    config = function()
+      local null_ls = require 'null-ls'
+      null_ls.setup {
+        sources = {
+          null_ls.builtins.formatting.isort,
+          null_ls.builtins.formatting.black,
+        },
+      }
+    end,
+  },
+  {
     -- Main LSP Configuration
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -173,6 +186,8 @@ return {
         omnisharp = {},
         gopls = {},
         pyright = {},
+        black = {},
+        isort = {},
         rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
