@@ -6,6 +6,7 @@ export DOT="$HOME/.dotfiles"
 export GOPATH="$HOME/.gopath"
 export GOBIN="$GOPATH/bin"
 export PATH=/opt/homebrew/bin:$PATH
+export PATH=/opt/homebrew/opt/python@3.13/libexec/bin:$PATH
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$HOME/bin:$DOT/bin:$HOME/.local/bin:$HOME/.poetry/bin:$GOBIN:$PATH"
 # not seeting theme as the plugin is installed outside of the ZSH/plugin dir
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -83,5 +84,9 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
-
+# Configuration for virtualenv
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=$HOME/.local/pipx/venvs/virtualenvwrapper/bin/python
+source virtualenvwrapper.sh
+ 
 source $ZSH/oh-my-zsh.sh
