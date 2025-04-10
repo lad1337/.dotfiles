@@ -77,12 +77,30 @@ return {
       require('ibl').setup()
     end,
     enabled = true,
-    {
-      'MeanderingProgrammer/render-markdown.nvim',
-      dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-      ---@module 'render-markdown'
-      ---@type render.md.UserConfig
-      opts = {},
+  },
+  {
+    'lad1337/render-markdown.nvim',
+    -- dir = '~/workspace/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {
+      heading = {
+        border = true,
+        above = '',
+        below = '󱋰',
+        backgrounds = {},
+        border_backgrounds = {
+          'RenderMarkdownH1Bg',
+          'RenderMarkdownH2Bg',
+          'RenderMarkdownH3Bg',
+          'RenderMarkdownH4Bg',
+          'RenderMarkdownH5Bg',
+          'RenderMarkdownH6Bg',
+        },
+      },
+    },
+  },
   {
     'rmagatti/auto-session',
     lazy = false,
