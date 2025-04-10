@@ -62,3 +62,6 @@ vim.opt.foldtext = ''
 vim.opt.foldlevel = 99
 -- vim.opt.foldlevelstart = 1
 -- vim.opt.foldnestmax = 4
+vim.cmd 'autocmd BufRead,BufNewFile *.dts,*.dtsi set filetype=dts'
+-- https://github.com/rmagatti/auto-session#recommended-sessionoptions-config
+vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'

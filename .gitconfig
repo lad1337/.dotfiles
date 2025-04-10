@@ -5,7 +5,7 @@
 	email = lad1337@gmail.com
 [core]
     excludesfile = ~/.gitignore
-    editor = lvim
+    editor = nvim
     pager = delta
 [interactive]
     diffFilter = delta --color-only

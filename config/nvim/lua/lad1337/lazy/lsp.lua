@@ -35,10 +35,11 @@ return {
     'rmagatti/goto-preview',
     event = 'BufEnter',
     config = function()
+      vim.keymap.set('n', 'gp', "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { noremap = true })
       require('goto-preview').setup {
         default_mappings = true,
         post_open_hook = function(bufnr, winnr)
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', 'q', ':bd<cr>', {})
+          vim.api.nvim_buf_set_keymap(bufnr, 'n', 'q', 'gP', {})
         end,
       }
     end,
@@ -181,20 +182,29 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        clangd = {},
-        eslint = {},
-        omnisharp = {},
-        gopls = {},
-        pyright = {},
-        black = {},
-        isort = {},
-        rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
+        clangd = {},
+        eslint = {},
+        omnisharp = {},
+        gopls = {},
+        -- ruff = {},
+        -- pyright = {},
+        pylsp = {
+          settings = {
+            pylsp = {
+              plugins = {
+                ruff = { enabled = true },
+                pycodestyle = { enabled = false },
+              },
+            },
+          },
+        },
+        rust_analyzer = {},
         ts_ls = {},
         lua_ls = {
           -- cmd = {...},
@@ -227,6 +237,8 @@ return {
         'stylua', -- Used to format Lua code
         'gdtoolkit',
         'gopls',
+        'isort',
+        'black',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

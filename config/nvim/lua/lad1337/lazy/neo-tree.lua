@@ -20,12 +20,14 @@ return {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
   opts = {
+    auto_clean_after_session_restore = true,
     filesystem = {
       hijack_netrw_behavior = 'open_current',
       window = {
         mappings = {
           ['\\'] = 'close_window',
           ['l'] = 'open',
+          ['P'] = { 'toggle_preview', config = { use_float = true, use_image_nvim = true } },
         },
       },
     },

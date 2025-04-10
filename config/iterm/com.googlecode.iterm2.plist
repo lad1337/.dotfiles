@@ -304,12 +304,16 @@
 			</dict>
 			<key>Ansi 8 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<string>0.3254902</string>
+				<real>0.36445614695549011</real>
+				<key>Color Space</key>
+				<string>P3</string>
 				<key>Green Component</key>
-				<string>0.3411765</string>
+				<real>0.36445605754852295</real>
 				<key>Red Component</key>
-				<string>0.3333333</string>
+				<real>0.36445605754852295</real>
 			</dict>
 			<key>Ansi 9 Color</key>
 			<dict>
@@ -324,12 +328,16 @@
 			<true/>
 			<key>Background Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<string>0</string>
+				<real>0.10000000000000001</real>
+				<key>Color Space</key>
+				<string>P3</string>
 				<key>Green Component</key>
-				<string>0</string>
+				<real>0.10000000000000001</real>
 				<key>Red Component</key>
-				<string>0</string>
+				<real>0.10000000000000001</real>
 			</dict>
 			<key>Background Image Location</key>
 			<string></string>
