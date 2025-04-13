@@ -1,5 +1,4 @@
 return {
-  'tpope/vim-sleuth',
   {
     'folke/lazydev.nvim',
     opts = {
@@ -23,20 +22,14 @@ return {
   },
   { 'Bilal2453/luvit-meta', lazy = true },
   {
-    'SmiteshP/nvim-navic',
-    requires = 'neovim/nvim-lspconfig',
-    config = function()
-      require('nvim-navic').setup {
-        lsp = { auto_attach = true },
-      }
-    end,
-  },
-  {
     'rmagatti/goto-preview',
+    dependencies = { 'rmagatti/logger.nvim' },
     event = 'BufEnter',
     config = function()
       vim.keymap.set('n', 'gp', "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { noremap = true })
       require('goto-preview').setup {
+        -- debug = true,
+        height = 20,
         default_mappings = true,
         post_open_hook = function(bufnr, winnr)
           vim.api.nvim_buf_set_keymap(bufnr, 'n', 'q', 'gP', {})
@@ -58,6 +51,25 @@ return {
     end,
   },
   {
+
+    'nvimdev/lspsaga.nvim',
+    config = function()
+      require('lspsaga').setup {
+        lightbulb = {
+          virtual_text = false,
+        },
+        ui = {
+          code_action = '󱐋',
+        },
+      }
+    end,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter', -- optional
+      'nvim-tree/nvim-web-devicons', -- optional
+    },
+  },
+
+  {
     -- Main LSP Configuration
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -70,6 +82,8 @@ return {
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       -- { 'j-hui/fidget.nvim', opts = {} },
       { 'rcarriga/nvim-notify' },
+      { 'SmiteshP/nvim-navic' },
+      { 'kevinhwang91/nvim-ufo' },
 
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
@@ -108,7 +122,12 @@ return {
           map('<leader>Ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
-          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+          -- map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+          map('<leader>rn', '<cmd>Lspsaga rename<cr>', '[R]e[n]ame')
+          map('<leader>i', '<cmd>Lspsaga show_buf_diagnostics<cr>', 'Buf Diagnostics')
+          map('<leader>I', '<cmd>Lspsaga show_workspace_diagnostics<cr>', 'Workspace Diagnostics')
+          map('K', '<cmd>Lspsaga hover_doc<cr>', 'HoverDoc')
+          map('<leader>o', '<cmd>Lspsaga outline<cr>', 'Outline')
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
@@ -146,12 +165,6 @@ return {
               end,
             })
           end
-          -- if client and client.server_capabilities.documentSymbolProvider then
-          --   vim.notify('attaching navic', 'info')
-          --   local navic = require 'nvim-navic'
-          --   navic.attach(client, event.buf)
-          -- end
-
           --
           -- The following code creates a keymap to toggle inlay hints in your
           -- code, if the language server you are using supports them
@@ -171,7 +184,13 @@ return {
       --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-
+      capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true,
+      }
+      -- if capabilities ~= nil then
+      --   vim.pretty_print(capabilities)
+      -- end
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
       --
@@ -192,33 +211,34 @@ return {
         eslint = {},
         omnisharp = {},
         gopls = {},
+        -- jedi_language_server = {},
         -- ruff = {},
-        -- pyright = {},
-        pylsp = {
-          settings = {
-            pylsp = {
-              plugins = {
-                ruff = { enabled = true },
-                pycodestyle = { enabled = false },
-              },
-            },
-          },
-        },
+        pyright = {},
+        -- pylsp = {
+        --   settings = {
+        --     pylsp = {
+        --       plugins = {
+        --         ruff = { enabled = true },
+        --         pycodestyle = { enabled = false },
+        --       },
+        --     },
+        --   },
+        -- },
         rust_analyzer = {},
         ts_ls = {},
         lua_ls = {
-          -- cmd = {...},
-          -- filetypes = { ...},
-          -- capabilities = {},
-          settings = {
-            Lua = {
-              completion = {
-                callSnippet = 'Replace',
-              },
-              -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              -- diagnostics = { disable = { 'missing-fields' } },
-            },
-          },
+          -- -- cmd = {...},
+          -- -- filetypes = { ...},
+          -- -- capabilities = {},
+          -- settings = {
+          --   Lua = {
+          --     completion = {
+          --       callSnippet = 'Replace',
+          --     },
+          --     -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+          --     -- diagnostics = { disable = { 'missing-fields' } },
+          --   },
+          -- },
         },
       }
 
@@ -243,6 +263,8 @@ return {
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
+        ensure_installed = {},
+        automatic_installation = true,
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}

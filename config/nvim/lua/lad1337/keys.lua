@@ -12,7 +12,6 @@ local k = function(mode, lhs, rhs, desc)
 end
 
 k('n', '<Esc>', '<cmd>nohlsearch<CR>')
-k('n', '|', '<cmd>Trouble symbols toggle focus=true<cr>')
 
 -- Diagnostic keymaps
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
@@ -73,6 +72,7 @@ end, 'Split Previous Buffer')
 
 k('n', '<C-p>', 'viwp', 'Paste over current word')
 k('n', '<space>p', 'gpd')
+-- k('n', 'K', vim.lsp.buf.hover, opts)
 -- vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<cr>')
 -- k('n', '<leader>a', '<cmd>lspsaga code_action<cr>', 'code action')
 -- k('n', '[e', '<cmd>lspsaga diagnostic_jump_next<cr>', 'next diagnostic')

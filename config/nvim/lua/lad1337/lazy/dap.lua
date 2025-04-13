@@ -30,6 +30,7 @@ return {
   },
   {
     'rcarriga/nvim-dap-ui',
+    lazy = true,
     dependencies = { 'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio' },
     config = function()
       local dap = require 'dap'
@@ -41,7 +42,6 @@ return {
         dapui.close()
       end
 
-      local dap = require 'dap'
       vim.keymap.set('n', '<F5>', dap.continue, { desc = 'Debug: Start/Continue' })
       vim.keymap.set('n', '<F12>', dap.continue, { desc = 'Debug: Start/Continue' })
       vim.keymap.set('n', '<F11>', dap.step_into, { desc = 'Debug: Step Into' })
