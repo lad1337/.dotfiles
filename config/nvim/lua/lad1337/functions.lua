@@ -4,6 +4,10 @@ function split_definition_vertical()
       print(err)
       return
     end
+    if result == nil then
+      vim.notify('No definition to open.', vim.log.levels.WARN)
+      return
+    end
 
     local command = 'vsplit ' .. vim.uri_to_fname(result[1].uri)
     local line = 'call cursor(' .. (result[1].range.start.line + 1) .. ',' .. (result[1].range.start.character + 1) .. ')'

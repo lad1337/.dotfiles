@@ -2,7 +2,7 @@ return {
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = {
     'nvim-lua/plenary.nvim',
   }, opts = { signs = false } },
-  { 'mrjones2014/nvim-ts-rainbow' },
+  -- { 'mrjones2014/nvim-ts-rainbow', opts = {} },
   {
     'zoriya/virtcolumn.nvim',
     config = function()
@@ -19,11 +19,40 @@ return {
       }
     end,
   },
+  -- { -- too colorful!
+  --   'HiPhish/rainbow-delimiters.nvim',
+  --   config = function(_, opts)
+  --     vim.api.nvim_set_hl(0, 'RainbowDelimiterCyan', { link = '@operator' })
+  --     vim.api.nvim_set_hl(0, 'MatchParen', { link = 'DiagnosticError' })
+  --     require('rainbow-delimiters.setup').setup(opts)
+  --   end,
+  --   opts = {
+  --     highlight = {
+  --       'RainbowDelimiterCyan',
+  --       'RainbowDelimiterViolet',
+  --       'RainbowDelimiterBlue',
+  --       'RainbowDelimiterYellow',
+  --       'RainbowDelimiterRed',
+  --       'RainbowDelimiterGreen',
+  --       'RainbowDelimiterOrange',
+  --     },
+  --     query = {
+  --       vue = 'rainbow-script',
+  --     },
+  --   },
+  -- },
   {
     'b0o/schemastore.nvim',
     lazy = true,
   },
   {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = true,
+    -- use opts = {} for passing setup options
+    -- this is equivalent to setup({}) function
+  },
+  { -- dignostics as virtual text on current line
     url = 'https://git.sr.ht/~lad1337/lsp_lines.nvim',
     -- dir = '~/workspace/lsp_lines.nvim',
     branch = 'overlay',

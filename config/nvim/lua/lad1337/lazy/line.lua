@@ -27,7 +27,7 @@ return {
       -- configurations go here
     },
   },
-  {
+  { -- folding
     'chrisgrieser/nvim-origami',
     dependencies = { 'kevinhwang91/nvim-ufo' },
     lazy = true,
@@ -39,7 +39,7 @@ return {
       },
     },
   },
-  {
+  { -- mall outline
     'stevearc/aerial.nvim',
     opts = {
       close_on_select = true,
@@ -73,7 +73,7 @@ return {
   --   event = 'BufReadPost',
   --   opts = {},
   -- },
-  {
+  { -- folding method and custom text
     'kevinhwang91/nvim-ufo',
     dependencies = { 'kevinhwang91/promise-async', 'luukvbaal/statuscol.nvim' },
     config = function(_, opts)
@@ -133,7 +133,7 @@ return {
       local builtin = require 'statuscol.builtin'
       vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:󰡏]]
       require('statuscol').setup {
-        relculright = true,
+        -- relculright = true,
         segments = {
           { text = { builtin.foldfunc }, click = 'v:lua.ScFa' },
           {

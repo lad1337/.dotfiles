@@ -12,6 +12,7 @@ require('lazy').setup {
 
 -- config
 require('lualine').setup {}
+
 local icons = require 'lad1337.icons'
 vim.diagnostic.config {
   virtual_text = false,

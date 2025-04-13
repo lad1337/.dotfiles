@@ -1,29 +1,5 @@
 return {
   -- { 'tenxsoydev/tabs-vs-spaces.nvim', config = true },
-  -- {
-  --   'kevinhwang91/nvim-ufo',
-  --   event = 'BufReadPost',
-  --   dependencies = { 'kevinhwang91/promise-async' },
-  --   config = function()
-  --     vim.o.foldenable = true
-  --     vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-  --     vim.o.foldcolumn = '1'
-  --     -- vim.o.foldcolumn = 'auto:9'
-  --     vim.o.foldlevel = 99
-  --     vim.o.foldlevelstart = 99
-  --   end,
-  --   opts = {
-  --     provider_selector = function()
-  --       return { 'treesitter', 'indent' }
-  --     end,
-  --   },
-  -- },
-  -- {
-  --   'anuvyklack/pretty-fold.nvim',
-  --   config = function()
-  --     require('pretty-fold').setup()
-  --   end,
-  -- },
   { 'NMAC427/guess-indent.nvim', config = true },
   { -- Autoformat
     'stevearc/conform.nvim',
@@ -80,7 +56,7 @@ return {
         cpp = { 'clang-format-18' },
         c = { 'clang-format-18' },
         -- Conform can also run multiple formatters sequentially
-        python = { 'ruff_format' },
+        python = { 'black', 'isort' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
