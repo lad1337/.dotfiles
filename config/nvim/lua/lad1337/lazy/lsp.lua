@@ -56,10 +56,15 @@ return {
     config = function()
       require('lspsaga').setup {
         lightbulb = {
-          virtual_text = false,
+          enable = false,
+          virtual_text = true,
+          sign = false,
         },
         ui = {
-          code_action = '󱐋',
+          code_action = ' 󱐋',
+        },
+        diagnostic = {
+          extend_relatedInformation = true,
         },
       }
     end,
@@ -127,7 +132,6 @@ return {
           map('<leader>i', '<cmd>Lspsaga show_buf_diagnostics<cr>', 'Buf Diagnostics')
           map('<leader>I', '<cmd>Lspsaga show_workspace_diagnostics<cr>', 'Workspace Diagnostics')
           map('K', '<cmd>Lspsaga hover_doc<cr>', 'HoverDoc')
-          map('<leader>o', '<cmd>Lspsaga outline<cr>', 'Outline')
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.

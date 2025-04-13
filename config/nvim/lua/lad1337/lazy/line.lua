@@ -39,6 +39,34 @@ return {
       },
     },
   },
+  {
+    'stevearc/aerial.nvim',
+    opts = {
+      close_on_select = true,
+      layout = {
+        default_direction = 'float',
+      },
+      float = {
+        relative = 'win',
+      },
+      autojump = true,
+      show_guides = true,
+    },
+    -- Optional dependencies
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons',
+    },
+    keys = { -- Example mapping to toggle outline
+      {
+        '<leader>o',
+        function()
+          require('aerial').toggle { focus = true }
+        end,
+        desc = 'Toggle outline',
+      },
+    },
+  },
   --   {
   --   'anuvyklack/pretty-fold.nvim',
   --   lazy = true,
@@ -114,7 +142,7 @@ return {
           },
           { text = { builtin.lnumfunc }, click = 'v:lua.ScLa' },
           {
-            sign = { namespace = { 'gitsigns' }, maxwidth = 2, auto = true, colwidth = 1 },
+            sign = { namespace = { 'gitsigns' }, maxwidth = 1, auto = true, colwidth = 1, fillchar = ' ' },
             click = 'v:lua.ScSa',
           },
           {

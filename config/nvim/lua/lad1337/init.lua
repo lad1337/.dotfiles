@@ -1,6 +1,7 @@
 -- setup
 vim.cmd.colorscheme 'lunar'
 require 'lad1337.set'
+require 'lad1337.functions'
 
 -- plugins lazy
 require 'lad1337.init_lazy'
@@ -8,7 +9,6 @@ require('lazy').setup {
   spec = 'lad1337.lazy',
   change_detection = { notify = false },
 }
--- require 'lad1337.godot'
 
 -- config
 require('lualine').setup {}
