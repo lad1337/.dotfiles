@@ -39,7 +39,7 @@ return {
       },
     },
   },
-  { -- mall outline
+  { -- arial: small outline
     'stevearc/aerial.nvim',
     opts = {
       close_on_select = true,
@@ -67,15 +67,12 @@ return {
       },
     },
   },
-  --   {
-  --   'anuvyklack/pretty-fold.nvim',
-  --   lazy = true,
-  --   event = 'BufReadPost',
-  --   opts = {},
-  -- },
-  { -- folding method and custom text
+  { --nvim-ufo: folding method and custom text
     'kevinhwang91/nvim-ufo',
-    dependencies = { 'kevinhwang91/promise-async', 'luukvbaal/statuscol.nvim' },
+    dependencies = {
+      'kevinhwang91/promise-async',
+      -- 'luukvbaal/statuscol.nvim'
+    },
     config = function(_, opts)
       vim.o.foldcolumn = '1' -- '0' is not bad
       vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
@@ -126,31 +123,31 @@ return {
       end,
     },
   },
-  {
-    'luukvbaal/statuscol.nvim',
-    lazy = true,
-    config = function()
-      local builtin = require 'statuscol.builtin'
-      vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:󰡏]]
-      require('statuscol').setup {
-        -- relculright = true,
-        segments = {
-          { text = { builtin.foldfunc }, click = 'v:lua.ScFa' },
-          {
-            sign = { namespace = { 'Diagnostics' }, maxwidth = 2, auto = true },
-            click = 'v:lua.ScSa',
-          },
-          { text = { builtin.lnumfunc }, click = 'v:lua.ScLa' },
-          {
-            sign = { namespace = { 'gitsigns' }, maxwidth = 1, auto = true, colwidth = 1, fillchar = ' ' },
-            click = 'v:lua.ScSa',
-          },
-          {
-            sign = { name = { '.*' }, maxwidth = 2, colwidth = 1, auto = true, wrap = true },
-            click = 'v:lua.ScSa',
-          },
-        },
-      }
-    end,
-  },
+  -- {
+  --   'luukvbaal/statuscol.nvim',
+  --   lazy = true,
+  --   config = function()
+  --     local builtin = require 'statuscol.builtin'
+  --     vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:󰡏]]
+  --     require('statuscol').setup {
+  --       -- relculright = true,
+  --       segments = {
+  --         { text = { builtin.foldfunc }, click = 'v:lua.ScFa' },
+  --         {
+  --           sign = { namespace = { 'Diagnostics' }, maxwidth = 2, auto = true },
+  --           click = 'v:lua.ScSa',
+  --         },
+  --         { text = { builtin.lnumfunc }, click = 'v:lua.ScLa' },
+  --         {
+  --           sign = { namespace = { 'gitsigns' }, maxwidth = 1, auto = true, colwidth = 1, fillchar = ' ' },
+  --           click = 'v:lua.ScSa',
+  --         },
+  --         {
+  --           sign = { name = { '.*' }, maxwidth = 2, colwidth = 1, auto = true, wrap = true },
+  --           click = 'v:lua.ScSa',
+  --         },
+  --       },
+  --     }
+  --   end,
+  -- },
 }

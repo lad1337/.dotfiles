@@ -1,8 +1,6 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
--- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
 local k = function(mode, lhs, rhs, desc)
   opts = { desc = desc }
   if type(desc) == 'table' then
@@ -11,18 +9,9 @@ local k = function(mode, lhs, rhs, desc)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+-- Clear highlights on search when pressing <Esc> in normal mode
+--  See `:help hlsearch`
 k('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
--- Diagnostic keymaps
--- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
--- k('n', '<leader>i', function()
---   vim.diagnostic.open_float(nil, {
---     focus = false,
---     scope = 'cursor',
---     border = 'rounded',
---     max_width = 100,
---   })
--- end, 'Diagnostics float')
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -42,27 +31,6 @@ k('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 k('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 k('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
-
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
-
-k('n', '<leader>(', '<Plug>(nvim-surround-normal)iw(', 'Surround word with )')
-k('n', '<leader>)', '<Plug>(nvim-surround-normal)iw)', 'Surround work with (')
-k('n', '<leader>]', '<Plug>(nvim-surround-normal)iw]', 'Surround word with ]')
-k('n', '<leader>[', '<Plug>(nvim-surround-normal)iw[', 'Surround word with [')
-k('n', "<leader>'", "<Plug>(nvim-surround-normal)iw'", "Surround word with '")
-k('n', '<leader>"', '<Plug>(nvim-surround-normal)iw"', 'Surround word with "')
-
 k('n', '<leader>q', vim.cmd.quit, 'Quit')
 k('n', '<leader>w', vim.cmd.write, 'Write')
 
@@ -72,9 +40,4 @@ end, 'Split Previous Buffer')
 
 k('n', '<C-p>', 'viwp', 'Paste over current word')
 k('n', '<space>p', 'gpd')
-k('n', '<C-u>', split_definition_vertical, 'Open definition in split')
--- k('n', 'K', vim.lsp.buf.hover, opts)
--- vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<cr>')
--- k('n', '<leader>a', '<cmd>lspsaga code_action<cr>', 'code action')
--- k('n', '[e', '<cmd>lspsaga diagnostic_jump_next<cr>', 'next diagnostic')
--- k('n', ']e', '<cmd>lspsaga diagnostic_jump_prev<cr>', 'prev diagnostic')
+k('n', '<C-o>', split_definition_vertical, 'Open definition in split')

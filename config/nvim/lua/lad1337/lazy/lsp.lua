@@ -21,7 +21,7 @@ return {
     end,
   },
   { 'Bilal2453/luvit-meta', lazy = true },
-  { -- floating window to of the definition
+  { -- goto-preview: floating window to of the definition
     'rmagatti/goto-preview',
     dependencies = { 'rmagatti/logger.nvim' },
     event = 'BufEnter',
@@ -32,26 +32,12 @@ return {
         height = 20,
         default_mappings = true,
         post_open_hook = function(bufnr, winnr)
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', 'q', 'gP', {})
+          vim.api.nvim_buf_set_keymap(bufnr, 'n', 'q', '<cmd>:q<cr>', {})
         end,
       }
     end,
   },
-  -- do not need as as conform.nvim does it and more
-  -- {
-  --   'nvimtools/none-ls.nvim',
-  --   dependencies = { 'mason.nvim' },
-  --   config = function()
-  --     local null_ls = require 'null-ls'
-  --     null_ls.setup {
-  --       sources = {
-  --         null_ls.builtins.formatting.isort,
-  --         null_ls.builtins.formatting.black,
-  --       },
-  --     }
-  --   end,
-  -- },
-  { --
+  { -- lspsaga: better rename and diagnostic
     'nvimdev/lspsaga.nvim',
     config = function()
       require('lspsaga').setup {

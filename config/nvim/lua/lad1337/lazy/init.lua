@@ -3,7 +3,7 @@ return {
     'nvim-lua/plenary.nvim',
   }, opts = { signs = false } },
   -- { 'mrjones2014/nvim-ts-rainbow', opts = {} },
-  {
+  { -- virtcolumn: line length marker
     'zoriya/virtcolumn.nvim',
     config = function()
       vim.cmd 'set cc=100'
@@ -18,29 +18,55 @@ return {
         -- Configuration here, or leave empty to use defaults
       }
     end,
+    keys = {
+      { '<leader>(', '<Plug>(nvim-surround-normal)iw(', 'Surround word with )' },
+      { '<leader>)', '<Plug>(nvim-surround-normal)iw)', 'Surround work with (' },
+      { '<leader>]', '<Plug>(nvim-surround-normal)iw]', 'Surround word with ]' },
+      { '<leader>[', '<Plug>(nvim-surround-normal)iw[', 'Surround word with [' },
+      { "<leader>'", "<Plug>(nvim-surround-normal)iw'", "Surround word with '" },
+      { '<leader>"', '<Plug>(nvim-surround-normal)iw"', 'Surround word with "' },
+    },
   },
-  -- { -- too colorful!
-  --   'HiPhish/rainbow-delimiters.nvim',
-  --   config = function(_, opts)
-  --     vim.api.nvim_set_hl(0, 'RainbowDelimiterCyan', { link = '@operator' })
-  --     vim.api.nvim_set_hl(0, 'MatchParen', { link = 'DiagnosticError' })
-  --     require('rainbow-delimiters.setup').setup(opts)
-  --   end,
-  --   opts = {
-  --     highlight = {
-  --       'RainbowDelimiterCyan',
-  --       'RainbowDelimiterViolet',
-  --       'RainbowDelimiterBlue',
-  --       'RainbowDelimiterYellow',
-  --       'RainbowDelimiterRed',
-  --       'RainbowDelimiterGreen',
-  --       'RainbowDelimiterOrange',
-  --     },
-  --     query = {
-  --       vue = 'rainbow-script',
-  --     },
-  --   },
-  -- },
+  { -- snacks: statuscolumn, indent and better input, no idea what words does but it sounded cool
+    'folke/snacks.nvim',
+    priority = 1000,
+    lazy = false,
+    ---@type snacks.Config
+    opts = {
+      bigfile = { enabled = true },
+      -- dashboard = { enabled = true },
+      ---@class snacks.indent.Config
+      ---@field enabled? boolean
+      indent = {
+        enabled = true,
+        indent = {
+          only_current = true,
+          only_scope = true,
+        },
+        animate = {
+          enabled = false,
+        },
+        scope = {
+          enabled = true,
+          underline = false,
+          -- char = '⎸',
+          hl = 'Bold',
+        },
+      },
+      input = { enabled = true },
+      quickfile = { enabled = true },
+      scope = { enabled = true },
+      -- scroll = { enabled = true },
+      statuscolumn = {
+        enabled = true,
+        left = {
+          -- "mark",
+          'sign',
+        },
+      },
+      words = { enabled = true },
+    },
+  },
   {
     'b0o/schemastore.nvim',
     lazy = true,
@@ -52,7 +78,7 @@ return {
     -- use opts = {} for passing setup options
     -- this is equivalent to setup({}) function
   },
-  { -- dignostics as virtual text on current line
+  { -- lsp_lines: dignostics as virtual text on current line 0.11 still does not do it as virtual text which this branch does
     url = 'https://git.sr.ht/~lad1337/lsp_lines.nvim',
     -- dir = '~/workspace/lsp_lines.nvim',
     branch = 'overlay',
@@ -60,22 +86,7 @@ return {
       require('lsp_lines').setup()
     end,
   },
-  -- {
-  --   'lad1337/marks.nvim',
-  --   -- dir = '~/workspace/marks.nvim',
-  --   branch = 'everything',
-  --   event = 'VeryLazy',
-  --   config = function()
-  --     local opts = {
-  --       preview_mappings = { { 'n', 'q', ':bd<CR>' } },
-  --       preview_size = { 0.8, 0.7 },
-  --       sign_priority = 0,
-  --     }
-  --     require('marks').setup(opts)
-  --     require('telescope').load_extension 'marks_nvim'
-  --   end,
-  -- },
-  {
+  { -- nvim-notify: fance notifications UI
     'rcarriga/nvim-notify',
     config = function()
       vim.notify = require 'notify'
@@ -88,27 +99,8 @@ return {
       require('lsp-notify').setup()
     end,
   },
-  -- {
-  --   'norcalli/nvim-colorizer.lua',
-  --   config = function()
-  --     require('colorizer').setup {
-  --       user_default_options = {
-  --         rgb_fn = true,
-  --         mode = 'virtualtext',
-  --       },
-  --     }
-  --   end,
-  -- },
   { 'f3fora/cmp-spell', enabled = false },
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    main = 'ibl',
-    config = function()
-      require('ibl').setup()
-    end,
-    enabled = true,
-  },
-  {
+  { -- render-markdown: you need this for all the docs, this costum branch does remove some headline stuff, i forgot
     'lad1337/render-markdown.nvim',
     -- dir = '~/workspace/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
@@ -131,14 +123,14 @@ return {
       },
     },
   },
-  {
+  { -- auto-session: remembers where you left of for the CWD, when working on vim config might want to delete sessions_dir
+    -- use :SessionSearch and C-d to delete from another instance
     'rmagatti/auto-session',
     lazy = false,
-
-    ---enables autocomplete for opts
     ---@module "auto-session"
     ---@type AutoSession.Config
     opts = {
+      lazy_support = true,
       suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
       show_auto_restore_notif = true,
       -- log_level = 'debug',

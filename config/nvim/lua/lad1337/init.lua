@@ -23,10 +23,10 @@ vim.diagnostic.config {
   },
   signs = {
     text = {
-      [vim.diagnostic.severity.ERROR] = icons.diagnostics.Error,
-      [vim.diagnostic.severity.WARN] = icons.diagnostics.Warning,
-      [vim.diagnostic.severity.HINT] = icons.diagnostics.Hint,
-      [vim.diagnostic.severity.INFO] = icons.diagnostics.Information,
+      [vim.diagnostic.severity.ERROR] = '', --icons.diagnostics.Error,
+      [vim.diagnostic.severity.WARN] = '', --icons.diagnostics.Warning,
+      [vim.diagnostic.severity.HINT] = '', --icons.diagnostics.Hint,
+      [vim.diagnostic.severity.INFO] = '', --icons.diagnostics.Information,
     },
 
     numhl = {
@@ -37,6 +37,17 @@ vim.diagnostic.config {
     },
   },
 }
+
+-- Highlight when yanking (copying) text
+--  Try it with `yap` in normal mode
+--  See `:help vim.highlight.on_yank()`
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
 
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = 'rounded',
