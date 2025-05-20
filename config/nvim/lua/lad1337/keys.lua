@@ -2,7 +2,7 @@
 --  See `:help vim.keymap.set()`
 
 local k = function(mode, lhs, rhs, desc)
-  opts = { desc = desc }
+  local opts = { desc = desc }
   if type(desc) == 'table' then
     opts = desc
   end
@@ -40,4 +40,4 @@ end, 'Split Previous Buffer')
 
 k('n', '<C-p>', 'viwp', 'Paste over current word')
 k('n', '<space>p', 'gpd')
-k('n', '<C-o>', split_definition_vertical, 'Open definition in split')
+k('n', '<C-s>', split_definition_vertical, 'Open definition in split')

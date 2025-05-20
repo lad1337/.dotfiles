@@ -11,17 +11,23 @@ require('lazy').setup {
 }
 
 -- config
-require('lualine').setup {}
+-- require('lualine').setup {}
 
 local icons = require 'lad1337.icons'
 vim.diagnostic.config {
   virtual_text = false,
-  virtual_lines = {
-    only_current_line = true,
-    overlay = true,
-    strip = true,
+  float = {
+    border = 'rounded',
+    focusable = false,
   },
+  -- virtual_lines = {
+  --   only_current_line = false,
+  --   overlay = false,
+  --   strip = true,
+  -- },
+  virtual_lines = false,
   signs = {
+    -- no diagnostic signs!
     text = {
       [vim.diagnostic.severity.ERROR] = '', --icons.diagnostics.Error,
       [vim.diagnostic.severity.WARN] = '', --icons.diagnostics.Warning,
@@ -48,7 +54,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
-
+-- https://www.reddit.com/r/neovim/comments/1kq8jxb/just_wanted_to_share_this_little_config_snippet_i/?share_id=mDMhOdxBn8s3djBMO_NMY&utm_content=1&utm_medium=ios_app&utm_name=iossmf&utm_source=share&utm_term=22
+-- Show errors and warnings in a floating window
+vim.api.nvim_create_autocmd('CursorHold', {
+  callback = function()
+    vim.diagnostic.open_float(nil, { focusable = false, source = 'if_many' })
+  end,
+})
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = 'rounded',
   max_width = 100, -- this is an absolute value -.-

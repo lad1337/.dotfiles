@@ -43,7 +43,7 @@ return {
       require('lspsaga').setup {
         lightbulb = {
           enable = false,
-          virtual_text = true,
+          virtual_text = false,
           sign = false,
         },
         ui = {
@@ -72,7 +72,8 @@ return {
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       -- { 'j-hui/fidget.nvim', opts = {} },
-      { 'rcarriga/nvim-notify' },
+      --
+      -- { 'rcarriga/nvim-notify' },
       { 'SmiteshP/nvim-navic' },
       { 'kevinhwang91/nvim-ufo' },
 
@@ -215,7 +216,28 @@ return {
         --   },
         -- },
         rust_analyzer = {},
-        ts_ls = {},
+        -- ts_ls = {},
+        -- vls = {},
+        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#volar
+        volar = {
+          -- add filetypes for typescript, javascript and vue
+          filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+          init_options = {
+            vue = {
+              -- disable hybrid mode
+              hybridMode = false,
+            },
+          },
+          settings = {
+            volar = {
+              codeLens = {
+                references = true,
+                pugTools = true,
+                scriptSetupTools = true,
+              },
+            },
+          },
+        },
         lua_ls = {
           -- -- cmd = {...},
           -- -- filetypes = { ...},
