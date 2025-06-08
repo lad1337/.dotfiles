@@ -33,7 +33,7 @@ POWERLEVEL9K_VCS_SHORTEN_MIN_LENGTH=11
 POWERLEVEL9K_VCS_SHORTEN_STRATEGY="truncate_from_right"
 POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-untracked git-aheadbehind git-remotebranch git-tagname)
 # <space> forces the seprator to appear
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh nix_shell dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs virtualenv kubecontext)
 '
 

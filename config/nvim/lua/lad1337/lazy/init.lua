@@ -156,4 +156,8 @@ return {
       -- log_level = 'debug',
     },
   },
+  {
+    'https://github.com/uga-rosa/ccc.nvim',
+    opts = {},
+  },
 }
