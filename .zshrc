@@ -85,8 +85,5 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv virtualenv-init -)"
 fi
 # Configuration for virtualenv
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=$HOME/.local/pipx/venvs/virtualenvwrapper/bin/python
-source virtualenvwrapper.sh
  
 source $ZSH/oh-my-zsh.sh
