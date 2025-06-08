@@ -9,11 +9,9 @@
 - clean: ['~']
 
 - link:
-    ~/.config/lvim: config/lvim
     ~/.config/nvim: config/nvim
     ~/.config/direnv: config/direnv
     ~/.config/lazygit: config/lazygit
-    ~/.config/starship.toml: config/starship.toml
     ~/.gitconfig: .gitconfig
     ~/.gitignore: .gitignore
     ~/.p10k.zsh: .p10k.zsh
@@ -26,10 +24,11 @@
 - install-brew: true
 
 - brew:
-    - starship
     - node
     - ripgrep
-    - python
+    - pyenv
+    - pipx
+    - pyenv-virtualenv
     - wget
     - tree
     - bat
@@ -47,3 +46,5 @@
     - [getnf -i Hack, Install Nerdfont Hack]
     - [chmod go-w '/opt/homebrew/share', Fix compinit 1]
     - [chmod -R go-w '/opt/homebrew/share/zsh', Fix compinit 2]
+    - ['sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"', install powerlevel10k]
+    - ['git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"', install powerlevel10k]
