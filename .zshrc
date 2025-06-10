@@ -19,7 +19,7 @@ export EDITOR=nvim
 export HOMEBREW_NO_ANALYTICS=1
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-plugins=(git zsh-syntax-highlighting vi-mode colored-man-pages zsh-fzf-history-search)
+plugins=(git zsh-syntax-highlighting vi-mode colored-man-pages zsh-fzf-history-search kubectl-autocomplete)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.

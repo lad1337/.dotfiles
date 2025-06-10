@@ -39,6 +39,8 @@
     - lazygit
     - watch
     - nvim
+    - kubectl
+    - k9s
 
 - shell:
     # - [LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh) --yes, Install LunarVim]
@@ -48,3 +50,5 @@
     - [chmod -R go-w '/opt/homebrew/share/zsh', Fix compinit 2]
     - ['sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"', install powerlevel10k]
     - ['git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"', install powerlevel10k]
+    - ['mkdir -p ~/.oh-my-zsh/custom/plugins/kubectl-autocomplete/', prepare kubectl-autocomplete]
+    - [' kubectl completion zsh > ~/.oh-my-zsh/custom/plugins/kubectl-autocomplete/kubectl-autocomplete.plugin.zsh', install kubectl-autocomplete]
