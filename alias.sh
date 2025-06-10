@@ -4,14 +4,14 @@ alias ze="$EDITOR ~/.zshrc"
 alias ls='ls --color=auto'
 alias repl="ipython"
 alias last-stash="git stash show 'stash@{0}' -p"
-local grc="/usr/local/bin/grc -es --colour=auto"
+local grc="/opt/homebrew/bin/grc -es --colour=auto"
 alias ping="${grc} ping"
 alias dig="${grc} dig"
 alias ifconfig="${grc} ifconfig"
 alias traceroute="${grc} traceroute"
 alias t="tree"
 # http://superuser.com/questions/180299/how-can-i-trigger-the-screensaver-on-my-mac
-alias ss="open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app"
+alias ss="open -a ScreenSaverEngine"
 # clean tox
 alias detox="find . -type f -name '*.py[co]' -delete -or -type d -name '__pycache__' -delete && rm -r .tox"
 #open ports on osx
