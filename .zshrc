@@ -56,11 +56,7 @@ export LANG=en_GB.UTF-8
 # https://github.com/sharkdp/bat#highlighting-theme
 export BAT_THEME="OneHalfDark"
 
-# load all other 'extensions'
-# source "$DOT/colorman.zsh"
-# git-flower, config:
-# url is without the key/id
-
+# what is this???
 commands[kubectl]="something"
 
 # LOAD all other functions
@@ -85,6 +81,5 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
-# Configuration for virtualenv
  
 source $ZSH/oh-my-zsh.sh
