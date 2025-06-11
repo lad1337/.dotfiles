@@ -1,5 +1,3 @@
-[include]
-    path = ~/.gitconfig.local
 [user]
 	name = lad1337
 	email = lad1337@gmail.com
@@ -56,3 +54,5 @@
 	stash = stash --all
 [rerere]
 	enabled = true
+[include]
+    path = ~/.gitconfig.local

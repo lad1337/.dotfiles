@@ -16,6 +16,7 @@ return {
       },
     },
     opts = {
+      -- log_level = vim.log.levels.DEBUG,
       notify_on_error = false,
       format_on_save = function(bufnr)
         -- Disable "format_on_save lsp_fallback" for languages that don't
@@ -51,12 +52,20 @@ return {
         --     graphql = "graphql",
         --     handlebars = "glimmer",
       },
+      formatters = {
+        prettier = {
+          prepend_args = { '--tab-width', '4', '--print-width', '120' },
+        },
+      },
       formatters_by_ft = {
         lua = { 'stylua' },
-        cpp = { 'clang-format-18' },
-        c = { 'clang-format-18' },
-        -- Conform can also run multiple formatters sequentially
-        python = { 'black', 'isort' },
+        cpp = { 'clang_format' },
+        c = { 'clang_format' },
+        python = {
+          'isort',
+          'ruff',
+          'black',
+        },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
