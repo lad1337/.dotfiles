@@ -44,6 +44,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 # info with: brew info zsh-completions
 if type brew &>/dev/null; then
+  fpath=($fpath /opt/homebrew/share/zsh/site-functions)
   autoload -Uz compinit
   compinit
 fi
