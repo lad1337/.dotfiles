@@ -1,6 +1,5 @@
-[user]
-	name = lad1337
-	email = lad1337@gmail.com
+[include]
+    path = .gitconfig.local
 [core]
     excludesfile = ~/.gitignore
     editor = nvim
@@ -56,3 +55,5 @@
 	enabled = true
 [include]
     path = ~/.gitconfig.local
+[includeIf "gitdir:~/.dotfiles/"]
+    path = ~/.dotfiles/.gitconfig.local
