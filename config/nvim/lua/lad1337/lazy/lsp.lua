@@ -238,6 +238,12 @@ return {
             },
           },
         },
+        jsonls = {
+          filetypes = { 'json', 'jsonc' },
+        },
+        yamlls = {
+          filetype = { 'yaml' },
+        },
         lua_ls = {
           -- -- cmd = {...},
           -- -- filetypes = { ...},
