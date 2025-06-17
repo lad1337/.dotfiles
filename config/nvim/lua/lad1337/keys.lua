@@ -38,6 +38,11 @@ k('n', '<leader>S', function()
   vim.cmd ':vsplit +:bprev'
 end, 'Split Previous Buffer')
 
+k('n', 'H', ':tabprevious<CR>', 'Previous tab')
+k('n', 'L', ':tabnext<CR>', 'Next tab')
+
+k('n', '<leader>sp', ':SessionSearch<CR>', 'Search Projects/Sessions')
+
 k('n', '<C-p>', 'viwp', 'Paste over current word')
-k('n', '<space>p', 'gpd')
+-- k('n', '<space>p', 'gpd')
 k('n', '<C-s>', split_definition_vertical, 'Open definition in split')
