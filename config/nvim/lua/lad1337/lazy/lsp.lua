@@ -244,6 +244,7 @@ return {
         yamlls = {
           filetype = { 'yaml' },
         },
+        helm_ls = {},
         lua_ls = {
           -- -- cmd = {...},
           -- -- filetypes = { ...},

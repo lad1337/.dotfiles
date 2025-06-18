@@ -1,5 +1,6 @@
 return {
   -- { 'tenxsoydev/tabs-vs-spaces.nvim', config = true },
+  { 'qvalentin/helm-ls.nvim', ft = 'helm' },
   { 'NMAC427/guess-indent.nvim', config = true },
   { -- Autoformat
     'stevearc/conform.nvim',
