@@ -17,7 +17,7 @@
     hunk-header-decoration-style = purple box
 [merge]
     keepBackup = false
-    tool = p4merge
+	tool = nvimdiff
     ff = false
 [mergetool "p4merge"]
     cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"

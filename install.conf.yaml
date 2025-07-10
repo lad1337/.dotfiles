@@ -52,3 +52,4 @@
     - ['git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"', install powerlevel10k]
     - ['mkdir -p ~/.oh-my-zsh/custom/plugins/kubectl-autocomplete/', prepare kubectl-autocomplete]
     - [' kubectl completion zsh > ~/.oh-my-zsh/custom/plugins/kubectl-autocomplete/kubectl-autocomplete.plugin.zsh', install kubectl-autocomplete]
+    - ['curl https://sh.rustup.rs -sSf | sh', Install Rust and Cargo]

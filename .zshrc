@@ -82,5 +82,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
- 
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+[ -f ~/.cargo/env ] && source ~/.cargo/env
 source $ZSH/oh-my-zsh.sh
