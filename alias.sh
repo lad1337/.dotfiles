@@ -34,6 +34,7 @@ alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say flus
 alias yaml2json="python -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sys.stdout, indent=4)'"
 # vim
 alias vim='nvim -O'
+alias a='. .venv/bin/activate'
 alias e='vim'
 alias a='. .venv/bin/activate'
 alias watch='watch '
