@@ -66,6 +66,7 @@ compdef _ssh_hosts tunnel-anything
 # custom kybingins and there functions
 source "$DOT/keybindins.zsh"
 source "$DOT/alias.sh"
+source "$DOT/functions/stuff.sh"
 
 # load fuzzy finder
 # currently installed by vim plugin manager

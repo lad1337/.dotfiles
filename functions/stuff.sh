@@ -9,18 +9,19 @@ fgi(){
 }
 
 tunnel-anything(){
-    if [[ $# < 2 || $# > 3 ]]
+    if [[ $# < 2 || $# > 4 ]]
     then
-        echo "Usage: tun <host> <hostport> [<port>]"
+        echo "Usage: tun <ssh-host> <remote-port> [<local-port>] [<remote-host>]"
         return 1
     fi
-    local host="$1"
-    local hostport="$2"
-    local port=${3:-$hostport}
+    local sshHost="$1"
+    local remotePort="$2"
+    local localPort=${3:-$remotePort}
+    local remoteHost=${4:-localhost}
 
-    ssh -M -S "/tmp/tunnel-anything-$port" -fnNT -L ${port}:localhost:${hostport} "$host"
-    vared -p "Tunnel is to '$host' open, on $port->$hostport (enter to stop)" -c tmp
-    ssh -S "/tmp/tunnel-anything-$port" -O exit "$host"
+    ssh -M -S "/tmp/tunnel-anything-$port" -fnNT -L ${localPort}:${remoteHost}:${remotePort} "$sshHost"
+    vared -p "Tunnel is to '$sshHost' open, on $localPort->$remotePort (enter to stop)" -c tmp
+    ssh -S "/tmp/tunnel-anything-$localPort" -O exit "$sshHost"
 }
 
 
