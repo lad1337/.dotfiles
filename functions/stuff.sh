@@ -19,7 +19,7 @@ tunnel-anything(){
     local localPort=${3:-$remotePort}
     local remoteHost=${4:-localhost}
 
-    ssh -M -S "/tmp/tunnel-anything-$port" -fnNT -L ${localPort}:${remoteHost}:${remotePort} "$sshHost"
+    ssh -M -S "/tmp/tunnel-anything-$localPort" -fnNT -L ${localPort}:${remoteHost}:${remotePort} "$sshHost"
     vared -p "Tunnel is to '$sshHost' open, on $localPort->$remotePort (enter to stop)" -c tmp
     ssh -S "/tmp/tunnel-anything-$localPort" -O exit "$sshHost"
 }
