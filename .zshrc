@@ -77,7 +77,6 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 # enable pyenv
 export VIRTUAL_ENV_DISABLE_PROMPT=""
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init --path)"
   eval "$(pyenv init -)"
