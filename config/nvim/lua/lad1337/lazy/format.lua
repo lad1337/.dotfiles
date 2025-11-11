@@ -53,11 +53,12 @@ return {
         --     graphql = "graphql",
         --     handlebars = "glimmer",
       },
-      formatters = {
-        prettier = {
-          prepend_args = { '--tab-width', '4', '--print-width', '120' },
-        },
-      },
+      -- formatters = {
+      --   prettier = {
+      --     -- require_cwd = true,
+      --     -- prepend_args = { '--tab-width', '2', '--print-width', '99' },
+      --   },
+      -- },
       formatters_by_ft = {
         lua = { 'stylua' },
         cpp = { 'clang_format' },
