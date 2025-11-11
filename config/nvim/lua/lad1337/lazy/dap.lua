@@ -29,6 +29,27 @@ return {
     end,
   },
   {
+    'nvim-neotest/neotest',
+    config = function()
+      require('neotest').setup {
+        adapters = {
+          require 'neotest-python' {
+            dap = { justMyCode = false },
+          },
+          require 'neotest-plenary',
+        },
+      }
+    end,
+    dependencies = {
+      'nvim-neotest/nvim-nio',
+      'nvim-lua/plenary.nvim',
+      'nvim-neotest/neotest-plenary',
+      'nvim-neotest/neotest-python',
+      'antoinemadec/FixCursorHold.nvim',
+      'nvim-treesitter/nvim-treesitter',
+    },
+  },
+  {
     'rcarriga/nvim-dap-ui',
     lazy = true,
     dependencies = { 'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio' },
