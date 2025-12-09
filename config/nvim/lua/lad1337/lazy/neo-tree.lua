@@ -19,10 +19,16 @@ return {
   keys = {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
+  ---@module "neo-tree"
+  ---@type neotree.Config?
   opts = {
     auto_clean_after_session_restore = true,
     filesystem = {
       hijack_netrw_behavior = 'open_current',
+      filtered_items = {
+        always_show = { '.env', '.env.example' },
+        always_show_by_pattern = { '.*.yaml', '.*.yml' },
+      },
       window = {
         mappings = {
           ['\\'] = 'close_window',
