@@ -25,6 +25,7 @@ plugins=(git zsh-syntax-highlighting vi-mode colored-man-pages zsh-fzf-history-s
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # https://github.com/bhilburn/powerlevel9k
+# THIS IS ONLY THE DEFAULT!! REAL config is at the .p10k.zsh
 : '
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_unique"
@@ -67,6 +68,7 @@ compdef _ssh_hosts tunnel-anything
 source "$DOT/keybindins.zsh"
 source "$DOT/alias.sh"
 source "$DOT/functions/stuff.sh"
+source "$DOT/functions/k8s.sh"
 
 # load fuzzy finder
 # currently installed by vim plugin manager
@@ -74,14 +76,6 @@ source "$DOT/functions/stuff.sh"
 export FZF_DEFAULT_OPTS='--height 40% --reverse --inline-info --preview "LS_COLORS=\"ow=01;90:di=01;90\" tree -C --matchdirs --prune -P $(basename {})"'
 export FZF_DEFAULT_COMMAND='fd --type f'
 
-# enable pyenv
-export VIRTUAL_ENV_DISABLE_PROMPT=""
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 [ -f ~/.cargo/env ] && source ~/.cargo/env
 source $ZSH/oh-my-zsh.sh

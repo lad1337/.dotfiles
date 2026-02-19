@@ -11,7 +11,6 @@ require('lazy').setup {
 }
 
 -- config
--- require('lualine').setup {}
 
 local icons = require 'lad1337.icons'
 vim.diagnostic.config {
@@ -68,5 +67,7 @@ vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
 
 -- automatically resize windows equally when terminal resizes
 vim.api.nvim_create_autocmd('VimResized', { command = 'wincmd =' })
+
 require 'lad1337.keys'
 require 'lad1337.py_async_helpers'
+require 'lad1337.structurizr'

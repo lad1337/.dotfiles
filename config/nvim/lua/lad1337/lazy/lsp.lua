@@ -219,25 +219,26 @@ return {
         -- ts_ls = {},
         -- vls = {},
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#volar
-        volar = {
-          -- add filetypes for typescript, javascript and vue
-          filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-          init_options = {
-            vue = {
-              -- disable hybrid mode
-              hybridMode = false,
-            },
-          },
-          settings = {
-            volar = {
-              codeLens = {
-                references = true,
-                pugTools = true,
-                scriptSetupTools = true,
-              },
-            },
-          },
-        },
+        -- volar seams to be broken ....
+        -- volar = {
+        --   -- add filetypes for typescript, javascript and vue
+        --   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+        --   init_options = {
+        --     vue = {
+        --       -- disable hybrid mode
+        --       hybridMode = false,
+        --     },
+        --   },
+        --   settings = {
+        --     volar = {
+        --       codeLens = {
+        --         references = true,
+        --         pugTools = true,
+        --         scriptSetupTools = true,
+        --       },
+        --     },
+        --   },
+        -- },
         jsonls = {
           filetypes = { 'json', 'jsonc' },
         },

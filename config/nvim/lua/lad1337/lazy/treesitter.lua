@@ -17,6 +17,20 @@ return {
       },
       indent = { enable = true, disable = { 'ruby' } },
     },
+    -- config = function(_, opts)
+    --   local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
+    --   parser_config.structurizr = {
+    --     install_info = {
+    --       -- url = 'https://github.com/josteink/tree-sitter-structurizr',
+    --       url = '/Users/lad1337/workspace/tree-sitter-structurizr',
+    --       revision = '82b63b2d13d5020d48f0e66621c9ed4d826d6a37',
+    --       branch = 'master',
+    --       queries = 'queries',
+    --     },
+    --     filetype = 'dsl',
+    --   }
+    --   require('nvim-treesitter.configs').setup(opts)
+    -- end,
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
     --
