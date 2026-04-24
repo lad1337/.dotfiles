@@ -1,4 +1,12 @@
 return {
+  { 'ianklapouch/wildberries.nvim', name = 'wildberries', priority = 1000 },
+  { 'bluz71/vim-nightfly-colors', name = 'nightfly', lazy = false, priority = 1000 },
+  { 'maxmx03/fluoromachine.nvim', lazy = false, priority = 1000 },
+  { 'Everblush/nvim', name = 'everblush', priority = 1000 },
+
+  { 'diegoulloao/neofusion.nvim', priority = 1000, config = true },
+  { 'ingenarel/cyberpunk-neon.nvim', priority = 1000 },
+
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = {
     'nvim-lua/plenary.nvim',
   }, opts = { signs = false } },
