@@ -69,6 +69,7 @@ source "$DOT/keybindins.zsh"
 source "$DOT/alias.sh"
 source "$DOT/functions/stuff.sh"
 source "$DOT/functions/k8s.sh"
+source $(which uv-virtualenvwrapper.sh)
 
 # load fuzzy finder
 # currently installed by vim plugin manager

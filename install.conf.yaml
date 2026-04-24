@@ -28,7 +28,7 @@
     - ripgrep
     - fzf
     - pipx
-    - pyenv-virtualenv
+    # - pyenv-virtualenv
     - wget
     - tree
     - bat
@@ -53,3 +53,5 @@
     - ['mkdir -p ~/.oh-my-zsh/custom/plugins/kubectl-autocomplete/', prepare kubectl-autocomplete]
     - [' kubectl completion zsh > ~/.oh-my-zsh/custom/plugins/kubectl-autocomplete/kubectl-autocomplete.plugin.zsh', install kubectl-autocomplete]
     - ['curl https://sh.rustup.rs -sSf | sh', Install Rust and Cargo]
+    - ['pipx install uv', "Install uv"]
+    - ['uv tool install uv-virtualenvwrapper', "install uv-virtualenvwrapperv"]
