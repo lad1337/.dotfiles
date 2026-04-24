@@ -24,19 +24,6 @@ plugins=(git zsh-syntax-highlighting vi-mode colored-man-pages zsh-fzf-history-s
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-# https://github.com/bhilburn/powerlevel9k
-# THIS IS ONLY THE DEFAULT!! REAL config is at the .p10k.zsh
-: '
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_unique"
-POWERLEVEL9K_VCS_SHORTEN_LENGTH=16
-POWERLEVEL9K_VCS_SHORTEN_MIN_LENGTH=11
-POWERLEVEL9K_VCS_SHORTEN_STRATEGY="truncate_from_right"
-POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-untracked git-aheadbehind git-remotebranch git-tagname)
-# <space> forces the seprator to appear
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs virtualenv kubecontext)
-'
 
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -76,6 +63,10 @@ source $(which uv-virtualenvwrapper.sh)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS='--height 40% --reverse --inline-info --preview "LS_COLORS=\"ow=01;90:di=01;90\" tree -C --matchdirs --prune -P $(basename {})"'
 export FZF_DEFAULT_COMMAND='fd --type f'
+# https://www.wildberries.style/fzf
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --color=bg+:#900048,bg:-1,spinner:#ff0e82,hl:#00ffb7 \
+                        --color=fg:#cdd6f4,header:#ff0e82,info:#cba6f7,pointer:#00ffb7 \
+                        --color=marker:#900048,fg+:#00ffb7,prompt:#cba6f7,hl+:#00ffb7"
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 [ -f ~/.cargo/env ] && source ~/.cargo/env
