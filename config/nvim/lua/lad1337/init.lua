@@ -11,7 +11,6 @@ require('lazy').setup {
 }
 
 -- config
-
 local icons = require 'lad1337.icons'
 vim.diagnostic.config {
   virtual_text = false,

@@ -18,6 +18,7 @@ return {
   cmd = 'Neotree',
   keys = {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '§', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
   ---@module "neo-tree"
   ---@type neotree.Config?
@@ -32,6 +33,7 @@ return {
       window = {
         mappings = {
           ['\\'] = 'close_window',
+          ['§'] = 'close_window',
           ['l'] = 'open',
           ['P'] = { 'toggle_preview', config = { use_float = true, use_image_nvim = true } },
         },
