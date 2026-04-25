@@ -6,6 +6,21 @@ return {
 
   { 'diegoulloao/neofusion.nvim', priority = 1000, config = true },
   { 'ingenarel/cyberpunk-neon.nvim', priority = 1000 },
+  { dir = '~/workspace/sublime-invader-zim/nvim' },
+  { 'hyperb1iss/silkcircuit', lazy = false, priority = 1000 },
+  { 'rockerBOO/boo-colorscheme-nvim', lazy = false, priority = 1000 },
+  { 'oxidescheme/nvim', name = 'oxid', lazy = false, priority = 1000 },
+  { 'LucaasHenrique/irwtsayh.nvim', lazy = false, priority = 1000 },
+
+  { 'vim-scripts/Relaxed-Green', lazy = false, priority = 1000 },
+  { 'vim-scripts/DarkZen-Color-Scheme', lazy = false, priority = 1000 },
+
+  {
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = {
     'nvim-lua/plenary.nvim',

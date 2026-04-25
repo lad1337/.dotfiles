@@ -1,5 +1,5 @@
 -- setup
-vim.cmd.colorscheme 'lunar'
+-- vim.cmd.colorscheme 'lunar'
 require 'lad1337.set'
 require 'lad1337.functions'
 
