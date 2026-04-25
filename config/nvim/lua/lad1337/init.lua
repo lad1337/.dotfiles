@@ -1,5 +1,4 @@
 -- setup
--- vim.cmd.colorscheme 'lunar'
 require 'lad1337.set'
 require 'lad1337.functions'
 
@@ -11,6 +10,22 @@ require('lazy').setup {
 }
 
 -- config
+-- theme
+require('tokyonight').setup {
+  -- use the night style
+  style = 'night',
+  -- disable italic for functions
+  styles = {
+    functions = {},
+  },
+  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+  on_colors = function(colors)
+    colors.hint = colors.orange
+    colors.error = '#ff0000'
+  end,
+}
+vim.cmd.colorscheme 'tokyonight-night'
+-- icon colors
 local icons = require 'lad1337.icons'
 vim.diagnostic.config {
   virtual_text = false,
