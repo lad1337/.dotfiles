@@ -39,6 +39,8 @@ require('tokyonight').setup {
     hl.LspReferenceWrite = { bg = '#EDFF00', fg = colors.bg }
     -- Neo-tree git modified files
     hl.NeoTreeGitModified = { fg = '#EDFF00' }
+    -- neon yellow on all floating window borders
+    hl.FloatBorder = { fg = '#EDFF00', bold = true }
   end,
 }
 vim.cmd.colorscheme 'tokyonight-night'
