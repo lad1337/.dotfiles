@@ -4,3 +4,23 @@ git:
     pager: delta --dark --paging=never
 gui:
   skipDiscardChangeWarning: true
+  theme:
+    activeBorderColor:
+      - "#EDFF00"
+      - bold
+    inactiveBorderColor:
+      - "#565f89"
+    optionsTextColor:
+      - "#cba6f7"
+    selectedLineBgColor:
+      - "#900048"
+    cherryPickedCommitBgColor:
+      - "#900048"
+    cherryPickedCommitFgColor:
+      - "#00ffb7"
+    unstagedChangesColor:
+      - "#ff0e82"
+    defaultFgColor:
+      - "#cdd6f4"
+    searchingActiveBorderColor:
+      - "#EDFF00"

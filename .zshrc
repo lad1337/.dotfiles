@@ -42,8 +42,24 @@ alias zr="source ~/.zshrc"
 alias ze="$EDITOR ~/.zshrc"
 
 export LANG=en_GB.UTF-8
-# https://github.com/sharkdp/bat#highlighting-theme
-export BAT_THEME="OneHalfDark"
+# zsh-syntax-highlighting custom colors
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[command]='fg=#cba6f7'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#cba6f7'
+ZSH_HIGHLIGHT_STYLES[function]='fg=#cba6f7'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#cba6f7'
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=#00ffb7'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=#00ffb7'
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=#00ffb7'
+ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=#ff0e82'
+ZSH_HIGHLIGHT_STYLES[redirection]='fg=#ff0e82'
+ZSH_HIGHLIGHT_STYLES[path]='fg=#EDFF00,underline'
+ZSH_HIGHLIGHT_STYLES[globbing]='fg=#ff0e82'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#ff0e82,bold'
+ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=#ff0e82'
+ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=#00ffb7'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=#00ffb7,italic'
+ZSH_HIGHLIGHT_STYLES[arg0]='fg=#cba6f7'
 
 # what is this???
 commands[kubectl]="something"

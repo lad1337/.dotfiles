@@ -12,6 +12,8 @@
     ~/.config/nvim: config/nvim
     ~/.config/direnv: config/direnv
     ~/.config/lazygit: config/lazygit
+    ~/.config/bat: config/bat
+    ~/.config/k9s: config/k9s
     ~/.gitconfig: .gitconfig
     ~/.gitignore: .gitignore
     ~/.p10k.zsh: .p10k.zsh
@@ -55,3 +57,4 @@
     - ['curl https://sh.rustup.rs -sSf | sh', Install Rust and Cargo]
     - ['pipx install uv', "Install uv"]
     - ['uv tool install uv-virtualenvwrapper', "install uv-virtualenvwrapperv"]
+    - ['bat cache --build', "Build bat theme cache"]

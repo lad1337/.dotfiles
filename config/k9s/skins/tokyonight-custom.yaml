@@ -1,0 +1,84 @@
+# TokyoNight Custom skin for k9s
+k9s:
+  body:
+    fgColor: "#cdd6f4"
+    bgColor: default
+    logoColor: "#EDFF00"
+  prompt:
+    fgColor: "#cdd6f4"
+    bgColor: default
+    suggestColor: "#cba6f7"
+  info:
+    fgColor: "#cba6f7"
+    sectionColor: "#00ffb7"
+  dialog:
+    fgColor: "#cdd6f4"
+    bgColor: default
+    buttonFgColor: "#1a1b26"
+    buttonBgColor: "#cba6f7"
+    buttonFocusFgColor: "#1a1b26"
+    buttonFocusBgColor: "#EDFF00"
+    labelFgColor: "#ff0e82"
+    fieldFgColor: "#cdd6f4"
+  frame:
+    border:
+      fgColor: "#900048"
+      focusColor: "#EDFF00"
+    menu:
+      fgColor: "#cdd6f4"
+      keyColor: "#ff0e82"
+      numKeyColor: "#ff0e82"
+    crumbs:
+      fgColor: "#1a1b26"
+      bgColor: "#cba6f7"
+      activeColor: "#EDFF00"
+    status:
+      newColor: "#00ffb7"
+      modifyColor: "#EDFF00"
+      addColor: "#00ffb7"
+      errorColor: "#ff0e82"
+      highlightColor: "#cba6f7"
+      killColor: "#900048"
+      completedColor: "#565f89"
+    title:
+      fgColor: "#cdd6f4"
+      bgColor: default
+      highlightColor: "#EDFF00"
+      counterColor: "#cba6f7"
+      filterColor: "#ff0e82"
+  views:
+    charts:
+      bgColor: default
+      defaultDialColors:
+        - "#00ffb7"
+        - "#ff0e82"
+      defaultChartColors:
+        - "#00ffb7"
+        - "#ff0e82"
+    table:
+      fgColor: "#cdd6f4"
+      bgColor: default
+      cursorFgColor: "#1a1b26"
+      cursorBgColor: "#900048"
+      header:
+        fgColor: "#EDFF00"
+        bgColor: default
+        sorterColor: "#00ffb7"
+    xray:
+      fgColor: "#cdd6f4"
+      bgColor: default
+      cursorColor: "#900048"
+      graphicColor: "#cba6f7"
+      showIcons: false
+    yaml:
+      keyColor: "#ff0e82"
+      colonColor: "#565f89"
+      valueColor: "#cdd6f4"
+    logs:
+      fgColor: "#cdd6f4"
+      bgColor: default
+      indicator:
+        fgColor: "#cdd6f4"
+        bgColor: default
+        toggleOnColor: "#00ffb7"
+        toggleOffColor: "#565f89"

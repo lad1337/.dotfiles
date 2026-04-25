@@ -19,9 +19,26 @@ require('tokyonight').setup {
     functions = {},
   },
   -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+  -- Custom colors inspired by FZF theme
   on_colors = function(colors)
     colors.hint = colors.orange
     colors.error = '#ff0000'
+    -- FZF-inspired overwrites
+    colors.fg = '#cdd6f4'
+    colors.magenta = '#ff0e82'
+    colors.magenta2 = '#900048'
+    colors.cyan = '#00ffb7'
+    colors.purple = '#cba6f7'
+  end,
+  on_highlights = function(hl, colors)
+    -- Edgerunners jacket neon yellow for current line number
+    hl.CursorLineNr = { fg = '#EDFF00', bold = true }
+    -- Same word highlight on cursor hold
+    hl.LspReferenceText = { bg = '#EDFF00', fg = colors.bg }
+    hl.LspReferenceRead = { bg = '#EDFF00', fg = colors.bg }
+    hl.LspReferenceWrite = { bg = '#EDFF00', fg = colors.bg }
+    -- Neo-tree git modified files
+    hl.NeoTreeGitModified = { fg = '#EDFF00' }
   end,
 }
 vim.cmd.colorscheme 'tokyonight-night'
