@@ -24,7 +24,9 @@ return {
   ---@type neotree.Config?
   opts = {
     auto_clean_after_session_restore = true,
+
     filesystem = {
+      use_libuv_file_watcher = true,
       hijack_netrw_behavior = 'open_current',
       filtered_items = {
         always_show = { '.env', '.env.example' },
