@@ -29,7 +29,7 @@ return {
       use_libuv_file_watcher = true,
       hijack_netrw_behavior = 'open_current',
       filtered_items = {
-        always_show = { '.env', '.env.example' },
+        always_show = { '.env', '.env.example', '.gitignore', '.zshrc' },
         always_show_by_pattern = { '.*.yaml', '.*.yml' },
       },
       window = {
