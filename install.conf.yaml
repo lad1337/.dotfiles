@@ -1,83 +1,70 @@
 - defaults:
-      link:
-          relink: true
-          force: true
-
+    link:
+      relink: true
+      force: true
 - shell:
-      - [git submodule update --init --recursive, Installing submodules]
-
-- clean: ["~"]
-
+    - - git submodule update --init --recursive
+      - Installing submodules
+- clean:
+    - "~"
 - link:
-      ~/.config/nvim: config/nvim
-      ~/.config/direnv: config/direnv
-      ~/.config/lazygit: config/lazygit
-      ~/.config/bat: config/bat
-      ~/.config/k9s: config/k9s
-      ~/.gitconfig: .gitconfig
-      ~/.gitignore: .gitignore
-      ~/.p10k.zsh: .p10k.zsh
-      ~/.zshrc: .zshrc
-
+    ~/.config/nvim: config/nvim
+    ~/.config/direnv: config/direnv
+    ~/.config/lazygit: config/lazygit
+    ~/.config/bat: config/bat
+    ~/.config/k9s: config/k9s
+    ~/.gitconfig: .gitconfig
+    ~/.gitignore: .gitignore
+    ~/.p10k.zsh: .p10k.zsh
+    ~/.zshrc: .zshrc
 - create:
-      - ~/downloads
-      - ~/.vim/undo-history
-
+    - ~/downloads
+    - ~/.vim/undo-history
 - install-brew: true
-
 - brew:
-      - node
-      - tree-sitter-cli
-      - ripgrep
-      - fzf
-      - pipx
-      # - pyenv-virtualenv
-      - wget
-      - tree
-      - bat
-      - coreutils
-      - git-delta
-      - grc
-      - yq
-      - lazygit
-      - watch
-      - nvim
-      - kubectl
-      - k9s
-
+    - nvim
+    - node
+    - tree-sitter-cli
+    - ripgrep
+    - fzf
+    - pipx
+    - wget
+    - tree
+    - bat
+    - coreutils
+    - git-delta
+    - grc
+    - yq
+    - lazygit
+    - watch
+    - kubectl
+    - k9s
+    - nvm
 - shell:
-      # - [LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh) --yes, Install LunarVim]
-      - [
-            curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash,
-            Install get Nerdfont,
-        ]
-      - [getnf -i Hack, Install Nerdfont Hack]
-      - [chmod go-w '/opt/homebrew/share', Fix compinit 1]
-      - [chmod -R go-w '/opt/homebrew/share/zsh', Fix compinit 2]
-      - [
-            'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"',
-            install powerlevel10k,
-        ]
-      - [
-            'git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"',
-            install powerlevel10k,
-        ]
-      - [
-            "mkdir -p ~/.oh-my-zsh/custom/plugins/kubectl-autocomplete/",
-            prepare kubectl-autocomplete,
-        ]
-      - [
-            " kubectl completion zsh > ~/.oh-my-zsh/custom/plugins/kubectl-autocomplete/kubectl-autocomplete.plugin.zsh",
-            install kubectl-autocomplete,
-        ]
-      - ["curl https://sh.rustup.rs -sSf | sh", Install Rust and Cargo]
-      - ["pipx install uv", "Install uv"]
-      - [
-            "uv tool install uv-virtualenvwrapper",
-            "install uv-virtualenvwrapperv",
-        ]
-      - ["bat cache --build", "Build bat theme cache"]
-      - [
-            "source ~/.dotfiles/colors.sh && git config --global color.status.added \"$COLOR_CYAN\" && git config --global color.status.changed \"$COLOR_YELLOW\" && git config --global color.status.untracked \"$COLOR_MAGENTA\" && git config --global color.decorate.branch \"$COLOR_CYAN\" && git config --global color.decorate.remoteBranch \"$COLOR_PURPLE\" && git config --global color.decorate.tag \"$COLOR_YELLOW\" && git config --global color.decorate.HEAD \"bold $COLOR_MAGENTA\"",
-            "Configure git colors",
-        ]
+    # - [LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh) --yes, Install LunarVim]
+    - - curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
+      - Install get Nerdfont
+    - - getnf -i Hack
+      - Install Nerdfont Hack
+    - - chmod go-w '/opt/homebrew/share'
+      - Fix compinit 1
+    - - chmod -R go-w '/opt/homebrew/share/zsh'
+      - Fix compinit 2
+    - - sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+      - Install oh-my-zsh
+    - - git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+      - install powerlevel10k
+    - - mkdir -p ~/.oh-my-zsh/custom/plugins/kubectl-autocomplete/
+      - prepare kubectl-autocomplete
+    - - ' kubectl completion zsh > ~/.oh-my-zsh/custom/plugins/kubectl-autocomplete/kubectl-autocomplete.plugin.zsh'
+      - install kubectl-autocomplete
+    - - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+      - Install Rust and Cargo
+    - - pipx install uv
+      - Install uv
+    - - uv tool install uv-virtualenvwrapper
+      - install uv-virtualenvwrapperv
+    - - bat cache --build
+      - Build bat theme cache
+    - - source ~/.dotfiles/colors.sh && git config --global color.status.added "$COLOR_CYAN" && git config --global color.status.changed "$COLOR_YELLOW" && git config --global color.status.untracked "$COLOR_MAGENTA" && git config --global color.decorate.branch "$COLOR_CYAN" && git config --global color.decorate.remoteBranch "$COLOR_PURPLE" && git config --global color.decorate.tag "$COLOR_YELLOW" && git config --global color.decorate.HEAD "bold $COLOR_MAGENTA"
+      - Configure git colors
