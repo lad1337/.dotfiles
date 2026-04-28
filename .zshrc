@@ -48,18 +48,8 @@ alias zr="source ~/.zshrc"
 alias ze="$EDITOR ~/.zshrc"
 
 export LANG=en_GB.UTF-8
-# Custom color palette (source of truth, used by nvim via vim.env)
-export COLOR_FG='#cdd6f4'
-export COLOR_MAGENTA='#ff0e82'
-export COLOR_MAGENTA2='#900048'
-export COLOR_CYAN='#00ffb7'
-export COLOR_PURPLE='#cba6f7'
-export COLOR_YELLOW='#EDFF00'
-# Semantic
-export COLOR_DIRECTORY=$COLOR_CYAN
-export COLOR_EXECUTABLE=$COLOR_MAGENTA
-export COLOR_SYMLINK=$COLOR_PURPLE
-export COLOR_ARCHIVE=$COLOR_YELLOW
+# Custom color palette (source of truth for all tools)
+source ~/.dotfiles/colors.sh
 
 # Helper: convert #RRGGBB to 38;2;R;G;B for LS_COLORS
 hex_to_ansi() {

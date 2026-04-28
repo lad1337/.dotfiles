@@ -68,8 +68,13 @@
     path = ~/.gitconfig.local
 [includeIf "gitdir:~/.dotfiles/"]
     path = ~/.dotfiles/.gitconfig.local
-# [color "status"] set dynamically in .zshrc from COLOR_* vars
+# [color "status"] and [color "decorate"] set by install script from colors.sh
 [color "status"]
 	added = "#00ffb7"
 	changed = "#EDFF00"
 	untracked = "#ff0e82"
+[color "decorate"]
+	branch = "#00ffb7"
+	remoteBranch = "#cba6f7"
+	tag = "#EDFF00"
+	HEAD = "bold #ff0e82"

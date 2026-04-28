@@ -77,3 +77,7 @@
             "install uv-virtualenvwrapperv",
         ]
       - ["bat cache --build", "Build bat theme cache"]
+      - [
+            "source ~/.dotfiles/colors.sh && git config --global color.status.added \"$COLOR_CYAN\" && git config --global color.status.changed \"$COLOR_YELLOW\" && git config --global color.status.untracked \"$COLOR_MAGENTA\" && git config --global color.decorate.branch \"$COLOR_CYAN\" && git config --global color.decorate.remoteBranch \"$COLOR_PURPLE\" && git config --global color.decorate.tag \"$COLOR_YELLOW\" && git config --global color.decorate.HEAD \"bold $COLOR_MAGENTA\"",
+            "Configure git colors",
+        ]
