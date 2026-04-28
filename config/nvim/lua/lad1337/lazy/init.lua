@@ -38,7 +38,7 @@ return {
           enabled = false,
         },
         scope = {
-          enabled = true,
+          enabled = false, -- disabled due to treesitter bug with nvim 0.12
           underline = false,
           -- char = '⎸',
           hl = 'Bold',
@@ -46,7 +46,7 @@ return {
       },
       input = { enabled = true },
       quickfile = { enabled = true },
-      scope = { enabled = true },
+      scope = { enabled = false }, -- disabled due to treesitter bug with nvim 0.12
       -- scroll = { enabled = true },
       statuscolumn = {
         enabled = true,
@@ -121,8 +121,7 @@ return {
         border = true,
         above = '',
         below = '󱋰',
-        backgrounds = {},
-        border_backgrounds = {
+        backgrounds = {
           'RenderMarkdownH1Bg',
           'RenderMarkdownH2Bg',
           'RenderMarkdownH3Bg',

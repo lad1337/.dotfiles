@@ -87,7 +87,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank()
   end,
 })
 -- https://www.reddit.com/r/neovim/comments/1kq8jxb/just_wanted_to_share_this_little_config_snippet_i/?share_id=mDMhOdxBn8s3djBMO_NMY&utm_content=1&utm_medium=ios_app&utm_name=iossmf&utm_source=share&utm_term=22
@@ -97,10 +97,7 @@ vim.api.nvim_create_autocmd('CursorHold', {
     vim.diagnostic.open_float(nil, { focusable = false, source = 'if_many' })
   end,
 })
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = 'rounded',
-  max_width = 100, -- this is an absolute value -.-
-})
+-- Hover is handled by Lspsaga in lsp.lua keymaps
 
 -- automatically resize windows equally when terminal resizes
 vim.api.nvim_create_autocmd('VimResized', { command = 'wincmd =' })

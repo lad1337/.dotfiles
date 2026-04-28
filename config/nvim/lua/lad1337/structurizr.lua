@@ -25,15 +25,8 @@ vim.treesitter.language.register('structurizr', { 'dsl' })
 --     }
 --   end,
 -- })
-local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
-parser_config.structurizr = {
-  install_info = {
-    url = 'https://github.com/josteink/tree-sitter-structurizr',
-    -- url = '/Users/lad1337/workspace/tree-sitter-structurizr',
-    revision = '82b63b2d13d5020d48f0e66621c9ed4d826d6a37',
-    files = { 'src/parser.c' }, -- This is the missing piece
-    branch = 'master',
-    queries = 'queries',
-  },
-  filetype = 'dsl',
-}
+-- Custom parser config requires nvim-treesitter, disabled for nvim 0.12
+-- To use structurizr parser, install manually:
+--   cd ~/.local/share/nvim/site/parser
+--   git clone https://github.com/josteink/tree-sitter-structurizr
+--   cd tree-sitter-structurizr && cc -shared -o structurizr.so -I./src src/parser.c -O2
