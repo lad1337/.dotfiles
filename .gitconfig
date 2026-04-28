@@ -11,19 +11,21 @@
     whitespace-error-style = 22 reverse
     colorMoved = default
     syntax-theme = none
-    minus-style = syntax "#3a1830"
-    minus-emph-style = syntax "#900048"
-    plus-style = syntax "#1a3a2a"
-    plus-emph-style = black "#00ffb7"
-    line-numbers-minus-style = "#ff0e82"
-    line-numbers-plus-style = "#00ffb7"
-    line-numbers-zero-style = "#565f89"
+	minus-style = "syntax \"#3a1830\""
+	minus-emph-style = "black #900048"
+	plus-style = "syntax \"#1a3a2a\""
+	plus-emph-style = "black #00ffb7"
+	line-numbers-minus-style = "#ff0e82"
+	line-numbers-plus-style = "#00ffb7"
+	line-numbers-zero-style = "#565f89"
+	commit-decoration-style = "bold #EDFF00 box ul"
+	file-style = "bold #cba6f7 ul"
+	hunk-header-decoration-style = "#ff0e82 box"
+	hunk-header-style = "file line-number #cba6f7"
+    # colors set dynamically in .zshrc from COLOR_* vars
 [delta "decorations"]
-    commit-decoration-style = bold "#EDFF00" box ul
-    file-style = bold "#cba6f7" ul
     file-decoration-style = none
-    hunk-header-decoration-style = "#ff0e82" box
-    hunk-header-style = file line-number "#cba6f7"
+    # colors set dynamically in .zshrc from COLOR_* vars
 [merge]
     keepBackup = false
 	tool = nvimdiff
@@ -66,3 +68,8 @@
     path = ~/.gitconfig.local
 [includeIf "gitdir:~/.dotfiles/"]
     path = ~/.dotfiles/.gitconfig.local
+# [color "status"] set dynamically in .zshrc from COLOR_* vars
+[color "status"]
+	added = "#00ffb7"
+	changed = "#EDFF00"
+	untracked = "#ff0e82"

@@ -11,6 +11,8 @@ require('lazy').setup {
 
 -- config
 -- theme
+local c = require 'lad1337.colors'
+
 require('tokyonight').setup {
   -- use the night style
   style = 'night',
@@ -22,25 +24,27 @@ require('tokyonight').setup {
   -- Custom colors inspired by FZF theme
   on_colors = function(colors)
     colors.hint = colors.orange
-    colors.error = '#ff0000'
+    colors.error = c.error
     -- FZF-inspired overwrites
-    colors.fg = '#cdd6f4'
-    colors.magenta = '#ff0e82'
-    colors.magenta2 = '#900048'
-    colors.cyan = '#00ffb7'
-    colors.purple = '#cba6f7'
+    colors.fg = c.fg
+    colors.magenta = c.magenta
+    colors.magenta2 = c.magenta2
+    colors.cyan = c.cyan
+    colors.purple = c.purple
   end,
   on_highlights = function(hl, colors)
     -- Edgerunners jacket neon yellow for current line number
-    hl.CursorLineNr = { fg = '#EDFF00', bold = true }
+    hl.CursorLineNr = { fg = c.yellow, bold = true }
     -- Same word highlight on cursor hold
-    hl.LspReferenceText = { bg = '#EDFF00', fg = colors.bg }
-    hl.LspReferenceRead = { bg = '#EDFF00', fg = colors.bg }
-    hl.LspReferenceWrite = { bg = '#EDFF00', fg = colors.bg }
-    -- Neo-tree git modified files
-    hl.NeoTreeGitModified = { fg = '#EDFF00' }
-    -- neon yellow on all floating window borders
-    hl.FloatBorder = { fg = '#EDFF00', bold = true }
+    hl.LspReferenceText = { bg = c.yellow, fg = colors.bg }
+    hl.LspReferenceRead = { bg = c.yellow, fg = colors.bg }
+    hl.LspReferenceWrite = { bg = c.yellow, fg = colors.bg }
+    -- Neo-tree
+    hl.NeoTreeGitModified = { fg = c.git_modified }
+    hl.NeoTreeDirectoryIcon = { fg = c.directory }
+    hl.NeoTreeDirectoryName = { fg = c.directory }
+    hl.NeoTreeRootName = { fg = c.directory, bold = true }
+    hl.NeoTreeFileExecutable = { fg = c.executable }
   end,
 }
 vim.cmd.colorscheme 'tokyonight-night'
