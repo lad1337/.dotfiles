@@ -51,9 +51,9 @@
       description: Fix compinit 1
     - command: chmod -R go-w '/opt/homebrew/share/zsh'
       description: Fix compinit 2
-    - command: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    - command: '[ -d "$HOME/.oh-my-zsh" ] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended'
       description: Install oh-my-zsh
-    - command: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+    - command: git -C "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" pull || git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
       description: Install powerlevel10k
     - command: mkdir -p ~/.oh-my-zsh/custom/plugins/kubectl-autocomplete/
       description: Prepare kubectl-autocomplete
