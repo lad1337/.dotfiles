@@ -13,3 +13,9 @@ export COLOR_DIRECTORY=$COLOR_CYAN
 export COLOR_EXECUTABLE=$COLOR_MAGENTA
 export COLOR_SYMLINK=$COLOR_PURPLE
 export COLOR_ARCHIVE=$COLOR_YELLOW
+
+# Helper: convert #RRGGBB to 38;2;R;G;B for LS_COLORS
+hex_to_ansi() {
+  local hex="${1#\#}"
+  printf "38;2;%d;%d;%d" 0x${hex:0:2} 0x${hex:2:2} 0x${hex:4:2}
+}

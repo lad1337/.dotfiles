@@ -51,11 +51,6 @@ export LANG=en_GB.UTF-8
 # Custom color palette (source of truth for all tools)
 source ~/.dotfiles/colors.sh
 
-# Helper: convert #RRGGBB to 38;2;R;G;B for LS_COLORS
-hex_to_ansi() {
-  local hex="${1#\#}"
-  printf "38;2;%d;%d;%d" 0x${hex:0:2} 0x${hex:2:2} 0x${hex:4:2}
-}
 
 # Git colors (git config doesn't support env vars, so set via commands)
 git config --global color.status.added "$COLOR_CYAN"
@@ -119,6 +114,14 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --color=bg+:$COLOR_MAGENTA2,bg:-1,spi
                         --color=fg:$COLOR_FG,header:$COLOR_MAGENTA,info:$COLOR_PURPLE,pointer:$COLOR_CYAN \
                         --color=marker:$COLOR_MAGENTA2,fg+:$COLOR_CYAN,prompt:$COLOR_PURPLE,hl+:$COLOR_CYAN"
 
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+# Rust
 [ -f ~/.cargo/env ] && source ~/.cargo/env
+
+# Node
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# local computer overwrite
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 source $ZSH/oh-my-zsh.sh
