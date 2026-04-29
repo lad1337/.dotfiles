@@ -40,3 +40,12 @@ calver(){
     local rc="${2:+-rc$2}"
     echo "$d$minor$rc"
 }
+
+# Run command with .env variables prepended
+dot() {
+  if [[ ! -f .env ]]; then
+    echo "No .env file found in current directory" >&2
+    return 1
+  fi
+  env $(grep -v '^#' .env | grep -v '^$' | xargs) "$@"
+}
