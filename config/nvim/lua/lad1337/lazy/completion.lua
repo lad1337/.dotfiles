@@ -1,0 +1,143 @@
+return { -- Autocompletion
+  -- dependency structure found in https://github.com/catgoose/nvim/blob/main/lua/plugins/cmp.lua
+  'hrsh7th/nvim-cmp',
+  event = 'InsertEnter',
+  dependencies = {
+    {
+      'hrsh7th/cmp-nvim-lsp',
+      dependencies = {
+        'saadparwaiz1/cmp_luasnip',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-buffer',
+        {
+          'L3MON4D3/LuaSnip',
+          opts = { friendly_snippets = true },
+          build = function()
+            if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then return end
+            vim.fn.system 'make install_jsregexp'
+            -- Mark compiled artifacts skip-worktree so lazy updates aren't blocked by local changes
+            local modified = vim.fn.systemlist 'git ls-files --modified'
+            if #modified > 0 then
+              vim.fn.system('git update-index --skip-worktree ' .. table.concat(modified, ' '))
+            end
+          end,
+          dependencies = {
+            {
+              'rafamadriz/friendly-snippets',
+              config = function()
+                require('luasnip.loaders.from_vscode').lazy_load()
+              end,
+            },
+          },
+        },
+      },
+    },
+  },
+  config = function()
+    -- See `:help cmp`
+    local cmp = require 'cmp'
+    local luasnip = require 'luasnip'
+    luasnip.config.setup {}
+
+    cmp.setup {
+      snippet = {
+        expand = function(args)
+          luasnip.lsp_expand(args.body)
+        end,
+      },
+      completion = { completeopt = 'menu,menuone,noinsert' },
+
+      -- For an understanding of why these mappings were
+      -- chosen, you will need to read `:help ins-completion`
+      --
+      -- No, but seriously. Please read `:help ins-completion`, it is really good!
+      mapping = cmp.mapping.preset.insert {
+        ['<C-j>'] = cmp.mapping.select_next_item(),
+        ['<C-k>'] = cmp.mapping.select_prev_item(),
+
+        -- Scroll the documentation window [b]ack / [f]orward
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+
+        ['<CR>'] = cmp.mapping.confirm { select = true },
+        ['<Tab>'] = cmp.mapping.select_next_item(),
+        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+
+        -- Manually trigger a completion from nvim-cmp.
+        --  Generally you don't need this, because nvim-cmp will display
+        --  completions whenever it has completion options available.
+        ['<C-Space>'] = cmp.mapping.complete {},
+
+        -- Think of <c-l> as moving to the right of your snippet expansion.
+        --  So if you have a snippet that's like:
+        --  function $name($args)
+        --    $body
+        --  end
+        --
+        -- <c-l> will move you to the right of each of the expansion locations.
+        -- <c-h> is similar, except moving you backwards.
+        ['<C-l>'] = cmp.mapping(function()
+          if luasnip.expand_or_locally_jumpable() then
+            luasnip.expand_or_jump()
+          end
+        end, { 'i', 's' }),
+        ['<C-h>'] = cmp.mapping(function()
+          if luasnip.locally_jumpable(-1) then
+            luasnip.jump(-1)
+          end
+        end, { 'i', 's' }),
+
+        -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
+        --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
+      },
+      sources = {
+        {
+          name = 'nvim_lsp',
+          group_index = 1,
+        },
+        {
+          name = 'luasnip',
+          group_index = 2,
+          option = { use_show_condition = true },
+          entry_filter = function()
+            local context = require 'cmp.config.context'
+            return not context.in_treesitter_capture 'string' and not context.in_syntax_group 'String'
+          end,
+        },
+        {
+          name = 'nvim_lua',
+          group_index = 3,
+        },
+        {
+          name = 'treesitter',
+          keyword_length = 4,
+          group_index = 4,
+        },
+        {
+          name = 'path',
+          keyword_length = 4,
+          group_index = 4,
+        },
+        {
+          name = 'buffer',
+          keyword_length = 3,
+          group_index = 5,
+          option = {
+            get_bufnrs = function()
+              local bufs = {}
+              for _, win in ipairs(vim.api.nvim_list_wins()) do
+                bufs[vim.api.nvim_win_get_buf(win)] = true
+              end
+              return vim.tbl_keys(bufs)
+            end,
+          },
+        },
+        {
+          name = 'lazydev',
+          keyword_length = 2,
+          group_index = 0,
+        },
+      },
+    }
+  end,
+}
