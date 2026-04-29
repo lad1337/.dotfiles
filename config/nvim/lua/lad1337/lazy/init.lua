@@ -23,9 +23,15 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
-      lazygit = { enabled = true },
+      lazygit = {
+        enabled = true,
+        configure = false, -- use our own config file
+        env = {
+          COLORTERM = 'truecolor',
+        },
+      },
       bigfile = { enabled = true },
-      -- dashboard = { enabled = true },
+      -- dashboard = { enabled = true }, -- using dashboard-nvim for lolcrab support
       ---@class snacks.indent.Config
       ---@field enabled? boolean
       indent = {
