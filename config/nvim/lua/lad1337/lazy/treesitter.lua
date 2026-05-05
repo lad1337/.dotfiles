@@ -6,10 +6,39 @@ return {
     build = ':TSUpdate',
     config = function()
       -- Install parsers (no ensure_installed in main branch)
-      local parsers = { 'bash', 'c', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'vue', 'typescript', 'javascript', 'css', 'html', 'json', 'yaml', 'python', 'go', 'rust' }
+      local parsers = {
+        'bash',
+        'c',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'vim',
+        'vimdoc',
+        'vue',
+        'typescript',
+        'javascript',
+        'css',
+        'html',
+        'json',
+        'yaml',
+        'python',
+        'go',
+        'rust',
+        'sql',
+      }
       for _, parser in ipairs(parsers) do
-        pcall(function() require('nvim-treesitter').install(parser) end)
+        pcall(function()
+          require('nvim-treesitter').install(parser)
+        end)
       end
+
+      vim.api.nvim_create_autocmd('FileType', {
+        callback = function(args)
+          pcall(vim.treesitter.start, args.buf)
+        end,
+      })
     end,
     -- config = function(_, opts)
     --   local parser_config = require('nvim-treesitter.parsers').get_parser_configs()

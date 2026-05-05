@@ -48,6 +48,7 @@ require('tokyonight').setup {
   end,
 }
 vim.cmd.colorscheme 'tokyonight-night'
+
 -- icon colors
 local icons = require 'lad1337.icons'
 vim.diagnostic.config {
