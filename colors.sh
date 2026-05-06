@@ -5,8 +5,9 @@ export COLOR_FG='#cdd6f4'
 export COLOR_MAGENTA='#ff0e82'
 export COLOR_MAGENTA2='#900048'
 export COLOR_CYAN='#00ffb7'
-export COLOR_PURPLE='#cba6f7'
+export COLOR_PURPLE='#7c3aed'
 export COLOR_YELLOW='#EDFF00'
+export COLOR_GREY='#3d3d3d'
 
 # Semantic aliases
 export COLOR_DIRECTORY=$COLOR_CYAN

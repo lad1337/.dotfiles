@@ -7,15 +7,15 @@ k9s:
   prompt:
     fgColor: "#cdd6f4"
     bgColor: default
-    suggestColor: "#cba6f7"
+    suggestColor: "#7c3aed"
   info:
-    fgColor: "#cba6f7"
+    fgColor: "#7c3aed"
     sectionColor: "#00ffb7"
   dialog:
     fgColor: "#cdd6f4"
     bgColor: default
     buttonFgColor: "#1a1b26"
-    buttonBgColor: "#cba6f7"
+    buttonBgColor: "#7c3aed"
     buttonFocusFgColor: "#1a1b26"
     buttonFocusBgColor: "#EDFF00"
     labelFgColor: "#ff0e82"
@@ -30,22 +30,22 @@ k9s:
       numKeyColor: "#ff0e82"
     crumbs:
       fgColor: "#1a1b26"
-      bgColor: "#cba6f7"
+      bgColor: "#7c3aed"
       activeColor: "#EDFF00"
     status:
       newColor: "#00ffb7"
       modifyColor: "#EDFF00"
       addColor: "#00ffb7"
-      pendingColor: "#cba6f7"
+      pendingColor: "#7c3aed"
       errorColor: "#ff0e82"
-      highlightColor: "#cba6f7"
+      highlightColor: "#7c3aed"
       killColor: "#900048"
       completedColor: "#565f89"
     title:
       fgColor: "#cdd6f4"
       bgColor: default
       highlightColor: "#EDFF00"
-      counterColor: "#cba6f7"
+      counterColor: "#7c3aed"
       filterColor: "#ff0e82"
   views:
     charts:
@@ -60,7 +60,7 @@ k9s:
       fgColor: "#cdd6f4"
       bgColor: default
       cursorFgColor: "#1a1b26"
-      cursorBgColor: "#cba6f7"
+      cursorBgColor: "#7c3aed"
       markColor: "#EDFF00"
       header:
         fgColor: "#00ffb7"
@@ -69,7 +69,7 @@ k9s:
     xray:
       fgColor: "#cdd6f4"
       bgColor: default
-      cursorColor: "#cba6f7"
+      cursorColor: "#7c3aed"
       graphicColor: "#EDFF00"
       showIcons: false
     yaml:
@@ -80,7 +80,7 @@ k9s:
       fgColor: "#cdd6f4"
       bgColor: default
       indicator:
-        fgColor: "#cba6f7"
+        fgColor: "#7c3aed"
         bgColor: default
         toggleOnColor: "#00ffb7"
         toggleOffColor: "#565f89"

@@ -18,11 +18,8 @@
 [[ ! -o 'no_brace_expand' ]] || p10k_config_opts+=('no_brace_expand')
 'builtin' 'setopt' 'no_aliases' 'no_sh_glob' 'brace_expand'
 
-cyan="#2ac3de"
-purple="#9976d6"
-green="#009933"
-orange="#ff9e64"
-grey="#3d3d3d"
+# Load colors from colors.sh
+source "${ZDOTDIR:-$HOME}/.dotfiles/colors.sh"
 
 () {
   emulate -L zsh -o extended_glob
@@ -220,19 +217,19 @@ grey="#3d3d3d"
 
   ##################################[ dir: current directory ]##################################
   # Current directory background color.
-  typeset -g POWERLEVEL9K_DIR_BACKGROUND=$grey
+  typeset -g POWERLEVEL9K_DIR_BACKGROUND=$COLOR_GREY
   # Default current directory foreground color.
-  typeset -g POWERLEVEL9K_DIR_FOREGROUND=$cyan
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND=$COLOR_CYAN
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
   # Replace removed segment suffixes with this symbol.
   typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
   # Color of the shortened directory segments.
-  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=$cyan
+  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=$COLOR_CYAN
   # Color of the anchor directory segments. Anchor segments are never shortened. The first
   # segment is always an anchor.
-  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=$cyan
+  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=$COLOR_CYAN
   # Display anchor directory segments in bold.
   typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=false
   # Don't shorten directories that contain any of these files. They are anchors.
@@ -359,8 +356,8 @@ grey="#3d3d3d"
 
   #####################################[ vcs: git status ]######################################
   # Version control background colors.
-  typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=$cyan
-  typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=$purple
+  typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=$COLOR_CYAN
+  typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=$COLOR_PURPLE
   typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=$green
   typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=$orange
   typeset -g POWERLEVEL9K_VCS_LOADING_BACKGROUND=8
@@ -997,8 +994,8 @@ grey="#3d3d3d"
 
   ###[ virtualenv: python virtual environment (https://docs.python.org/3/library/venv.html) ]###
   # Python virtual environment color.
-  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND=0
-  typeset -g POWERLEVEL9K_VIRTUALENV_BACKGROUND=4
+  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND=$COLOR_FG
+  typeset -g POWERLEVEL9K_VIRTUALENV_BACKGROUND=$COLOR_PURPLE
   # Don't show Python version next to the virtual environment name.
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=false
   # If set to "false", won't show virtualenv if pyenv is already shown.

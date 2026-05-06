@@ -19,9 +19,9 @@
 	line-numbers-plus-style = "#00ffb7"
 	line-numbers-zero-style = "#565f89"
 	commit-decoration-style = "bold #EDFF00 box ul"
-	file-style = "bold #cba6f7 ul"
+	file-style = "bold #7c3aed ul"
 	hunk-header-decoration-style = "#ff0e82 box"
-	hunk-header-style = "file line-number #cba6f7"
+	hunk-header-style = "file line-number #7c3aed"
     # colors set dynamically in .zshrc from COLOR_* vars
 [delta "decorations"]
     file-decoration-style = none
@@ -75,7 +75,7 @@
 	untracked = "#ff0e82"
 [color "decorate"]
 	branch = "#00ffb7"
-	remoteBranch = "#cba6f7"
+	remoteBranch = "#7c3aed"
 	tag = "#EDFF00"
 	HEAD = "bold #ff0e82"
 [difftool "nvimdiff"]
@@ -85,4 +85,4 @@
 [color "branch"]
 	current = "#00ffb7"
 	local = "#cdd6f4"
-	remote = "#cba6f7"
+	remote = "#7c3aed"
