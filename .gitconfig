@@ -37,7 +37,7 @@
     trustExitCode = false
     prompt = false
 [diff]
-    tool = p4diff
+	tool = nvimdiff
     renames = copies
     mnemonicprefix = true
 [difftool "p4diff"]
@@ -78,3 +78,7 @@
 	remoteBranch = "#cba6f7"
 	tag = "#EDFF00"
 	HEAD = "bold #ff0e82"
+[difftool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
