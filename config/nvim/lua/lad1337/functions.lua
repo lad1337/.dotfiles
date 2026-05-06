@@ -18,3 +18,12 @@ function split_definition_vertical()
     vim.cmd(line)
   end)
 end
+
+vim.api.nvim_create_user_command('Mypy', function(args)
+  local errorFile = '/tmp/mypy-errors'
+  vim.cmd(string.format('silent !mypy --no-error-summary . > %s', errorFile))
+  vim.cmd(string.format('silent cf %s', errorFile))
+  vim.cmd 'cw'
+  local qf_list = vim.fn.getqflist()
+  print(string.format('Found %d error(s)', #qf_list))
+end, {})
