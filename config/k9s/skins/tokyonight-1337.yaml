@@ -10,7 +10,7 @@ k9s:
     suggestColor: "#7c3aed"
   info:
     fgColor: "#7c3aed"
-    sectionColor: "#00ffb7"
+    sectionColor: "#2ac3de"
   dialog:
     fgColor: "#cdd6f4"
     bgColor: default
@@ -33,9 +33,9 @@ k9s:
       bgColor: "#7c3aed"
       activeColor: "#EDFF00"
     status:
-      newColor: "#00ffb7"
+      newColor: "#2ac3de"
       modifyColor: "#EDFF00"
-      addColor: "#00ffb7"
+      addColor: "#2ac3de"
       pendingColor: "#7c3aed"
       errorColor: "#ff0e82"
       highlightColor: "#7c3aed"
@@ -51,10 +51,10 @@ k9s:
     charts:
       bgColor: default
       defaultDialColors:
-        - "#00ffb7"
+        - "#2ac3de"
         - "#ff0e82"
       defaultChartColors:
-        - "#00ffb7"
+        - "#2ac3de"
         - "#ff0e82"
     table:
       fgColor: "#cdd6f4"
@@ -63,7 +63,7 @@ k9s:
       cursorBgColor: "#7c3aed"
       markColor: "#EDFF00"
       header:
-        fgColor: "#00ffb7"
+        fgColor: "#2ac3de"
         bgColor: default
         sorterColor: "#EDFF00"
     xray:
@@ -73,7 +73,7 @@ k9s:
       graphicColor: "#EDFF00"
       showIcons: false
     yaml:
-      keyColor: "#00ffb7"
+      keyColor: "#2ac3de"
       colonColor: "#565f89"
       valueColor: "#cdd6f4"
     logs:
@@ -82,5 +82,5 @@ k9s:
       indicator:
         fgColor: "#7c3aed"
         bgColor: default
-        toggleOnColor: "#00ffb7"
+        toggleOnColor: "#2ac3de"
         toggleOffColor: "#565f89"

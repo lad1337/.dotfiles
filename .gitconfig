@@ -14,9 +14,9 @@
 	minus-style = "syntax \"#3a1830\""
 	minus-emph-style = "black #900048"
 	plus-style = "syntax \"#1a3a2a\""
-	plus-emph-style = "black #00ffb7"
+	plus-emph-style = "black #2ac3de"
 	line-numbers-minus-style = "#ff0e82"
-	line-numbers-plus-style = "#00ffb7"
+	line-numbers-plus-style = "#2ac3de"
 	line-numbers-zero-style = "#565f89"
 	commit-decoration-style = "bold #EDFF00 box ul"
 	file-style = "bold #7c3aed ul"
@@ -70,11 +70,11 @@
     path = ~/.dotfiles/.gitconfig.local
 # [color "status"] and [color "decorate"] set by install script from colors.sh
 [color "status"]
-	added = "#00ffb7"
+	added = "#2ac3de"
 	changed = "#EDFF00"
 	untracked = "#ff0e82"
 [color "decorate"]
-	branch = "#00ffb7"
+	branch = "#2ac3de"
 	remoteBranch = "#7c3aed"
 	tag = "#EDFF00"
 	HEAD = "bold #ff0e82"
@@ -83,6 +83,6 @@
 [difftool]
 	prompt = false
 [color "branch"]
-	current = "#00ffb7"
+	current = "#2ac3de"
 	local = "#cdd6f4"
 	remote = "#7c3aed"
