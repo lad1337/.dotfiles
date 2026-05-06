@@ -120,6 +120,9 @@ source "${ZDOTDIR:-$HOME}/.dotfiles/colors.sh"
   # icon overlap when using non-monospace fonts. When set to `none`, spaces are not added.
   typeset -g POWERLEVEL9K_ICON_PADDING=none
 
+  # Remove trailing space from right prompt
+  typeset -g ZLE_RPROMPT_INDENT=0
+
   # When set to true, icons appear before content on both sides of the prompt. When set
   # to false, icons go after content. If empty or not set, icons go before content in the left
   # prompt and after content in the right prompt.
@@ -358,8 +361,8 @@ source "${ZDOTDIR:-$HOME}/.dotfiles/colors.sh"
   # Version control background colors.
   typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=$COLOR_CYAN
   typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=$COLOR_PURPLE
-  typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=$green
-  typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=$orange
+  typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=$COLOR_YELLOW
+  typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=$COLOR_MAGENTA
   typeset -g POWERLEVEL9K_VCS_LOADING_BACKGROUND=8
 
   # Branch icon. Set this parameter to '\UE0A0 ' for the popular Powerline branch icon.
@@ -994,7 +997,7 @@ source "${ZDOTDIR:-$HOME}/.dotfiles/colors.sh"
 
   ###[ virtualenv: python virtual environment (https://docs.python.org/3/library/venv.html) ]###
   # Python virtual environment color.
-  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND=$COLOR_FG
+  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND=0
   typeset -g POWERLEVEL9K_VIRTUALENV_BACKGROUND=$COLOR_PURPLE
   # Don't show Python version next to the virtual environment name.
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=false
@@ -1043,7 +1046,7 @@ source "${ZDOTDIR:-$HOME}/.dotfiles/colors.sh"
   ################[ pyenv: python environment (https://github.com/pyenv/pyenv) ]################
   # Pyenv color.
   typeset -g POWERLEVEL9K_PYENV_FOREGROUND=0
-  typeset -g POWERLEVEL9K_PYENV_BACKGROUND=4
+  typeset -g POWERLEVEL9K_PYENV_BACKGROUND=$COLOR_PURPLE
   # Hide python version if it doesn't come from one of these sources.
   typeset -g POWERLEVEL9K_PYENV_SOURCES=(shell local global)
   # If set to false, hide python version if it's the same as global:
