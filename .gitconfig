@@ -10,7 +10,7 @@
     features = side-by-side line-numbers decorations
     whitespace-error-style = 22 reverse
     colorMoved = default
-    syntax-theme = none
+	syntax-theme = tokyonight-1337
 	minus-style = "syntax \"#3a1830\""
 	minus-emph-style = "black #900048"
 	plus-style = "syntax \"#1a3a2a\""
@@ -82,3 +82,7 @@
 	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
+[color "branch"]
+	current = "#00ffb7"
+	local = "#cdd6f4"
+	remote = "#cba6f7"

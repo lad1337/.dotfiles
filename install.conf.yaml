@@ -37,6 +37,7 @@
     - git-delta
     - grc
     - yq
+    - jq
     - lazygit
     - watch
     - kubectl
@@ -65,7 +66,5 @@
       description: Install uv
     - command: uv tool install uv-virtualenvwrapper
       description: Install uv-virtualenvwrapper
-    - command: bat cache --build
-      description: Build bat theme cache
-    - command: source ~/.dotfiles/colors.sh && git config --global color.status.added "$COLOR_CYAN" && git config --global color.status.changed "$COLOR_YELLOW" && git config --global color.status.untracked "$COLOR_MAGENTA" && git config --global color.decorate.branch "$COLOR_CYAN" && git config --global color.decorate.remoteBranch "$COLOR_PURPLE" && git config --global color.decorate.tag "$COLOR_YELLOW" && git config --global color.decorate.HEAD "bold $COLOR_MAGENTA"
-      description: Configure git colors
+    - command: ~/.dotfiles/bin/bake-colors
+      description: Bake colors into git config
