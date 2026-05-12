@@ -5,21 +5,25 @@ return {
     event = 'VimEnter',
     dependencies = { 'amansingh-afk/milli.nvim' },
     opts = function()
-      local splash = require('milli').load { splash = 'gohan' }
+      local selection = { 'gohan', 'fingers', 'lain' }
+      local it = selection[math.random(#selection)]
+      local splash = require('milli').load { splash = it }
       return {
         theme = 'doom',
         config = {
           header = splash.frames[1], -- seed header with frame 0
           center = {
-            { icon = '  ', desc = 'Find File', key = 'f', action = 'Telescope find_files' },
-            { icon = '  ', desc = 'Quit', key = 'q', action = 'qa' },
+            { desc = 'Find File', key = 'f', action = 'Telescope find_files' },
+            { desc = 'Quit', key = 'q', action = 'qa' },
+            { desc = it, desc_hl = 'SpecialKey' },
           },
         },
       }
     end,
     config = function(_, opts)
       require('dashboard').setup(opts)
-      require('milli').dashboard { splash = 'gohan', loop = true }
+      local c = opts['config']['center']
+      require('milli').dashboard { splash = c[#c]['desc'], loop = true }
     end,
   },
 }
