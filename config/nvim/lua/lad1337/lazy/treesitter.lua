@@ -23,6 +23,7 @@ return {
         'html',
         'json',
         'yaml',
+        'helm',
         'python',
         'go',
         'rust',
