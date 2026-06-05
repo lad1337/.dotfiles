@@ -38,6 +38,7 @@
     - grc
     - yq
     - jq
+    - yamlfmt
     - lazygit
     - watch
     - kubectl

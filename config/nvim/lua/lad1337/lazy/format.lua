@@ -53,26 +53,21 @@ return {
         --     graphql = "graphql",
         --     handlebars = "glimmer",
       },
-      -- formatters = {
-      --   prettier = {
-      --     -- require_cwd = true,
-      --     -- prepend_args = { '--tab-width', '2', '--print-width', '99' },
-      --   },
-      -- },
+      formatters = {
+        yamlfmt = {
+          prepend_args = { '-formatter', 'retain_line_breaks=true' },
+        },
+      },
       formatters_by_ft = {
         lua = { 'stylua' },
         cpp = { 'clang_format' },
         c = { 'clang_format' },
-        python = {
-          'isort',
-          'ruff',
-          'black',
-        },
+        python = { 'ruff_organize_imports', 'ruff_format' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
         json = { 'jq' },
-        yaml = { 'yq' },
+        yaml = { 'yamlfmt' },
         javascript = { 'prettier' },
         typescript = { 'prettier' },
         javascriptreact = { 'prettier' },

@@ -1,3 +1,4 @@
 k9s:
   ui:
     skin: tokyonight-1337
+    enableMouse: true

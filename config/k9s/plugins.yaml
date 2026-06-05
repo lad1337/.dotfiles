@@ -21,3 +21,58 @@ plugins:
     args:
       - -c
       - kubectl annotate pushsecrets.external-secrets.io --context $CONTEXT -n $NAMESPACE $NAME force-sync-dlutter=$(date +%s) --overwrite
+  toggle-dd-profiling:
+    shortCut: Shift-D
+    confirm: false
+    scopes:
+      - deployments
+    description: Toggle DD_PROFILING_ENABLED
+    command: bash
+    background: true
+    overwriteOutput: true
+    args:
+      - -c
+      - |
+        if kubectl set env deployment/$NAME --context $CONTEXT -n $NAMESPACE --list 2>/dev/null | grep -q DD_PROFILING_ENABLED; then
+          kubectl set env deployment/$NAME --context $CONTEXT -n $NAMESPACE DD_PROFILING_ENABLED- >/dev/null 2>&1
+          echo "DD profiling OFF"
+        else
+          kubectl set env deployment/$NAME --context $CONTEXT -n $NAMESPACE DD_PROFILING_ENABLED=1 >/dev/null 2>&1
+          echo "DD profiling ON"
+        fi
+  toggle-dd-profiling-cronjob:
+    shortCut: Shift-D
+    confirm: false
+    scopes:
+      - cronjobs
+    description: Toggle DD_PROFILING_ENABLED
+    command: bash
+    background: true
+    overwriteOutput: true
+    args:
+      - -c
+      - |
+        if kubectl set env cronjob/$NAME --context $CONTEXT -n $NAMESPACE --list 2>/dev/null | grep -q DD_PROFILING_ENABLED; then
+          kubectl set env cronjob/$NAME --context $CONTEXT -n $NAMESPACE DD_PROFILING_ENABLED- >/dev/null 2>&1
+          echo "DD profiling OFF"
+        else
+          kubectl set env cronjob/$NAME --context $CONTEXT -n $NAMESPACE DD_PROFILING_ENABLED=1 >/dev/null 2>&1
+          echo "DD profiling ON"
+        fi
+  duplik8s:
+    shortCut: Ctrl-T
+    description: Duplicate resource
+    scopes:
+      - po
+      - deploy
+      - statefulset
+    command: kubectl
+    background: true
+    args:
+      - duplicate
+      - $RESOURCE_NAME
+      - $NAME
+      - -n
+      - $NAMESPACE
+      - --context
+      - $CONTEXT

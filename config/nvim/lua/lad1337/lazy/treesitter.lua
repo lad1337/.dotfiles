@@ -24,6 +24,7 @@ return {
         'json',
         'yaml',
         'helm',
+        'toml',
         'python',
         'go',
         'rust',
