@@ -49,3 +49,40 @@ dot() {
   fi
   env $(grep -v '^#' .env | grep -v '^$' | xargs) "$@"
 }
+
+# Extract CMD from Dockerfile and return as shell command
+_dockerfile_cmd() {
+  local dockerfile="${1:-Dockerfile}"
+  if [[ ! -f "$dockerfile" ]]; then
+    return 1
+  fi
+  # Get last CMD line, parse JSON array format
+  grep -i '^CMD' "$dockerfile" | tail -1 | \
+    sed 's/^CMD[[:space:]]*//' | \
+    jq -r 'if type == "array" then join(" ") else . end' 2>/dev/null || \
+    grep -i '^CMD' "$dockerfile" | tail -1 | sed 's/^CMD[[:space:]]*//'
+}
+
+# Widget to expand dCMD to actual command
+_expand_dcmd() {
+  if [[ "$LBUFFER" == "dCMD"* ]]; then
+    local cmd="$(_dockerfile_cmd)"
+    if [[ -n "$cmd" ]]; then
+      LBUFFER="${cmd}${LBUFFER#dCMD}"
+      return
+    fi
+  fi
+  zle expand-or-complete
+}
+zle -N _expand_dcmd
+bindkey '^I' _expand_dcmd
+
+# Also provide dCMD as a function to just print/run it
+dCMD() {
+  local cmd=$(_dockerfile_cmd "$1")
+  if [[ -z "$cmd" ]]; then
+    echo "No CMD found in Dockerfile" >&2
+    return 1
+  fi
+  echo "$cmd"
+}
