@@ -400,12 +400,51 @@ mkdir -p "$DOTFILES_DIR/config/iterm"
 echo "  Updated: config/iterm/tokyonight-1337.itermcolors"
 
 echo ""
+echo "Updating Ghostty colors..."
+# Inline color keys spliced between markers in config.ghostty. Inline (not a
+# `theme =` file) because Supacode only re-applies inline color keys on live
+# reload. Same semantic mapping as the iTerm2 colorscheme above.
+GHOSTTY_CONFIG="$DOTFILES_DIR/config/ghostty/config.ghostty"
+GHOSTTY_COLORS="$(cat << EOF
+palette = 0=$COLOR_BG
+palette = 1=$COLOR_MAGENTA
+palette = 2=$COLOR_CYAN
+palette = 3=$COLOR_YELLOW
+palette = 4=$COLOR_PURPLE
+palette = 5=$COLOR_MAGENTA
+palette = 6=$COLOR_CYAN
+palette = 7=$COLOR_FG
+palette = 8=$COLOR_MUTED
+palette = 9=$COLOR_MAGENTA
+palette = 10=$COLOR_CYAN
+palette = 11=$COLOR_YELLOW
+palette = 12=$COLOR_PURPLE
+palette = 13=$COLOR_MAGENTA
+palette = 14=$COLOR_CYAN
+palette = 15=$COLOR_FG
+background = $COLOR_BG
+foreground = $COLOR_FG
+cursor-color = $COLOR_YELLOW
+cursor-text = $COLOR_BG
+selection-background = $COLOR_MAGENTA2
+selection-foreground = $COLOR_FG
+EOF
+)"
+awk -v block="$GHOSTTY_COLORS" '
+  /^# >>> bake-colors:ghostty-colors/ { print; print block; skip=1; next }
+  /^# <<< bake-colors:ghostty-colors/ { skip=0 }
+  !skip { print }
+' "$GHOSTTY_CONFIG" > "$GHOSTTY_CONFIG.tmp" && mv "$GHOSTTY_CONFIG.tmp" "$GHOSTTY_CONFIG"
+echo "  Updated: config/ghostty/config.ghostty (between markers)"
+
+echo ""
 echo "Done! Colors baked into:"
 echo "  - Git (delta, status, branch, decorate)"
 echo "  - lazygit"
 echo "  - k9s"
 echo "  - bat"
 echo "  - iTerm2"
+echo "  - Ghostty"
 echo ""
 echo "Note: Restart apps to see changes."
 echo "      For iTerm2 run: open config/iterm/tokyonight-1337.itermcolors"

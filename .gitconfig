@@ -86,3 +86,5 @@
 	current = "#2ac3de"
 	local = "#cdd6f4"
 	remote = "#7c3aed"
+[coderabbit]
+	machineId = cli/be19af57f0044bb0a13e90e9db2bc19e
