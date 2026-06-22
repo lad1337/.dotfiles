@@ -39,6 +39,10 @@ return {
           -- Floating window borders
           hl.FloatBorder = { fg = c.yellow, bold = true }
           -- Neo-tree
+          -- Soften the sidebar: use the normal editor bg instead of the darker bg_dark
+          hl.NeoTreeNormal = { bg = colors.bg }
+          hl.NeoTreeNormalNC = { bg = colors.bg }
+          hl.NeoTreeEndOfBuffer = { bg = colors.bg }
           hl.NeoTreeGitModified = { fg = c.git_modified }
           hl.NeoTreeDirectoryIcon = { fg = c.directory }
           hl.NeoTreeDirectoryName = { fg = c.directory }

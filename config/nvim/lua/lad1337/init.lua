@@ -10,44 +10,7 @@ require('lazy').setup {
 }
 
 -- config
--- theme
-local c = require 'lad1337.colors'
-
-require('tokyonight').setup {
-  -- use the night style
-  style = 'night',
-  -- disable italic for functions
-  styles = {
-    functions = {},
-  },
-  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-  -- Custom colors inspired by FZF theme
-  on_colors = function(colors)
-    colors.hint = colors.orange
-    colors.error = c.error
-    -- FZF-inspired overwrites
-    colors.fg = c.fg
-    colors.magenta = c.magenta
-    colors.magenta2 = c.magenta2
-    colors.cyan = c.cyan
-    colors.purple = c.purple
-  end,
-  on_highlights = function(hl, colors)
-    -- Edgerunners jacket neon yellow for current line number
-    hl.CursorLineNr = { fg = c.yellow, bold = true }
-    -- Same word highlight on cursor hold
-    hl.LspReferenceText = { bg = c.yellow, fg = colors.bg }
-    hl.LspReferenceRead = { bg = c.yellow, fg = colors.bg }
-    hl.LspReferenceWrite = { bg = c.yellow, fg = colors.bg }
-    -- Neo-tree
-    hl.NeoTreeGitModified = { fg = c.git_modified }
-    hl.NeoTreeDirectoryIcon = { fg = c.directory }
-    hl.NeoTreeDirectoryName = { fg = c.directory }
-    hl.NeoTreeRootName = { fg = c.directory, bold = true }
-    hl.NeoTreeFileExecutable = { fg = c.executable }
-  end,
-}
-vim.cmd.colorscheme 'tokyonight-night'
+-- theme is configured in lad1337/lazy/theme.lua (single source of truth)
 
 -- icon colors
 local icons = require 'lad1337.icons'
