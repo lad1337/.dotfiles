@@ -86,3 +86,24 @@ dCMD() {
   fi
   echo "$cmd"
 }
+
+datagrip-pw() {
+  local name="$1"
+  if [[ -z "$name" ]]; then
+    echo "usage: datagrip-pw <connection-name>" >&2
+    return 1
+  fi
+
+  local uuid
+  uuid=$(grep -rh "name=\"$name\"" ~/Library/Application\ Support/JetBrains/DataGrip*/ 2>/dev/null \
+    | grep -oiE '[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}' \
+    | head -1)
+
+  if [[ -z "$uuid" ]]; then
+    echo "no UUID found for connection \"$name\"" >&2
+    return 1
+  fi
+
+  echo "uuid=$uuid" >&2
+  security find-generic-password -s "IntelliJ Platform DB — $uuid" -w
+}
