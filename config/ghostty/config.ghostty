@@ -1,8 +1,6 @@
 # Supacode config (libghostty format)
 # Docs: https://ghostty.org/docs/config
-# Read from $XDG_CONFIG_HOME/ghostty/ (defaults to ~/.config/ghostty/)
 
-# --- Font (copied from iTerm default profile: HackNFM-Regular 11) ---
 font-family = "Hack Nerd Font Mono"
 font-size = 11
 
@@ -35,9 +33,10 @@ selection-foreground = #cdd6f4
 # <<< bake-colors:ghostty-colors
 
 # 1 = fully opaque (no transparency). Lower toward 0 to see through the window.
-background-opacity = 0.5
+background-opacity = 1
 # --- Don't dim unfocused splits (1 = fully opaque, no fade) ---
 unfocused-split-opacity = 1
+split-divider-color = #7c3aed
 
 # --- Pane switching (copied from iTerm: Cmd+Opt+h/j/k/l, vim-style) ---
 keybind = super+alt+h=goto_split:left

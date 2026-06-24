@@ -14,6 +14,8 @@
     ~/.config/bat: config/bat
     ~/.config/k9s: config/k9s
     ~/.config/ghostty: config/ghostty
+    ~/.claude/themes/lad1337-neon.json: config/claude/themes/lad1337-neon.json
+    ~/.claude/settings.json: config/claude/settings.json
     ~/.gitconfig: .gitconfig
     ~/.gitignore: .gitignore
     ~/.p10k.zsh: .p10k.zsh

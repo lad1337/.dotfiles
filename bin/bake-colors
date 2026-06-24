@@ -438,6 +438,38 @@ awk -v block="$GHOSTTY_COLORS" '
 echo "  Updated: config/ghostty/config.ghostty (between markers)"
 
 echo ""
+echo "Updating Claude Code theme..."
+mkdir -p "$DOTFILES_DIR/config/claude/themes"
+cat > "$DOTFILES_DIR/config/claude/themes/lad1337-neon.json" << EOF
+{
+  "name": "lad1337 Neon",
+  "base": "dark",
+  "overrides": {
+    "claude": "$COLOR_MAGENTA",
+    "text": "$COLOR_FG",
+    "inactive": "$COLOR_MUTED",
+    "error": "$COLOR_MAGENTA",
+    "success": "$COLOR_GREEN",
+    "warning": "$COLOR_YELLOW",
+    "permission": "$COLOR_CYAN",
+    "planMode": "$COLOR_PURPLE",
+    "thinking": "$COLOR_PURPLE",
+    "link": "$COLOR_CYAN",
+    "selection": "$COLOR_MAGENTA2",
+    "cursor": "$COLOR_YELLOW",
+    "promptBorder": "$COLOR_MAGENTA2",
+    "bashBorder": "$COLOR_MAGENTA",
+    "autoAccept": "$COLOR_CYAN",
+    "diffAdded": "$COLOR_GREEN",
+    "diffRemoved": "$COLOR_MAGENTA",
+    "diffAddedWord": "$COLOR_CYAN",
+    "diffRemovedWord": "$COLOR_MAGENTA2"
+  }
+}
+EOF
+echo "  Updated: config/claude/themes/lad1337-neon.json"
+
+echo ""
 echo "Done! Colors baked into:"
 echo "  - Git (delta, status, branch, decorate)"
 echo "  - lazygit"
@@ -445,6 +477,7 @@ echo "  - k9s"
 echo "  - bat"
 echo "  - iTerm2"
 echo "  - Ghostty"
+echo "  - Claude Code"
 echo ""
 echo "Note: Restart apps to see changes."
 echo "      For iTerm2 run: open config/iterm/tokyonight-1337.itermcolors"
