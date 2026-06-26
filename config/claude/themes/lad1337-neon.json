@@ -1,0 +1,25 @@
+{
+  "name": "lad1337 Neon",
+  "base": "dark",
+  "overrides": {
+    "claude": "#ff0e82",
+    "text": "#cdd6f4",
+    "inactive": "#565f89",
+    "error": "#ff0e82",
+    "success": "#00ffb7",
+    "warning": "#EDFF00",
+    "permission": "#2ac3de",
+    "planMode": "#7c3aed",
+    "thinking": "#7c3aed",
+    "link": "#2ac3de",
+    "selection": "#900048",
+    "cursor": "#EDFF00",
+    "promptBorder": "#900048",
+    "bashBorder": "#ff0e82",
+    "autoAccept": "#2ac3de",
+    "diffAdded": "#00ffb7",
+    "diffRemoved": "#ff0e82",
+    "diffAddedWord": "#2ac3de",
+    "diffRemovedWord": "#900048"
+  }
+}
