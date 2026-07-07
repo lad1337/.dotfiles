@@ -39,7 +39,7 @@ return {
         },
       },
       input = { enabled = true },
-      quickfile = { enabled = true },
+      quickfile = { enabled = true, exclude = { 'latex', 'gitcommit' } },
       scope = { enabled = false }, -- disabled due to treesitter bug with nvim 0.12
       statuscolumn = {
         enabled = true,

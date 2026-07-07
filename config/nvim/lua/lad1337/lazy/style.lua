@@ -5,7 +5,6 @@ return {
   { 'Everblush/nvim', name = 'everblush', priority = 1000 },
 
   { 'diegoulloao/neofusion.nvim', priority = 1000, config = true },
-  { 'ingenarel/cyberpunk-neon.nvim', priority = 1000 },
   { 'hyperb1iss/silkcircuit', lazy = false, priority = 1000 },
   { 'rockerBOO/boo-colorscheme-nvim', lazy = false, priority = 1000 },
   { 'oxidescheme/nvim', name = 'oxid', lazy = false, priority = 1000 },
