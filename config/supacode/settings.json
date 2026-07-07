@@ -1,0 +1,235 @@
+{
+  "global" : {
+    "agentPresenceBadgesEnabled" : true,
+    "analyticsEnabled" : true,
+    "appearanceMode" : "dark",
+    "autoUpdateAgentIntegrationsEnabled" : true,
+    "automatedActionPolicy" : "cliOnly",
+    "confirmQuitMode" : "auto",
+    "copyIgnoredOnWorktreeCreate" : false,
+    "copyUntrackedOnWorktreeCreate" : false,
+    "crashReportsEnabled" : true,
+    "defaultEditorID" : "editor",
+    "deleteBranchOnDeleteWorktree" : true,
+    "fetchOriginBeforeWorktreeCreation" : true,
+    "githubIntegrationEnabled" : true,
+    "globalScripts" : [
+      {
+        "command" : "uv sync",
+        "id" : "AC922921-316D-46A3-8CD8-E42D5B4E3637",
+        "kind" : "custom",
+        "name" : "UV",
+        "tintColor" : "purple"
+      }
+    ],
+    "hideSingleTabBar" : false,
+    "inAppNotificationsEnabled" : true,
+    "moveNotifiedWorktreeToTop" : true,
+    "muteNotificationsForActiveSurface" : true,
+    "notificationSound" : "hero",
+    "promptForWorktreeCreation" : true,
+    "pullRequestMergeStrategy" : "merge",
+    "remoteSessionPersistenceEnabled" : true,
+    "richAgentNotificationsEnabled" : true,
+    "shortcutOverrides" : {
+      "runScript" : {
+        "isEnabled" : false,
+        "keyCode" : 0,
+        "modifiers" : 0
+      },
+      "selectNextWorktree" : {
+        "isEnabled" : true,
+        "keyCode" : 38,
+        "modifiers" : 11
+      },
+      "selectPreviousWorktree" : {
+        "isEnabled" : true,
+        "keyCode" : 40,
+        "modifiers" : 11
+      }
+    },
+    "systemNotificationsEnabled" : false,
+    "terminalThemeSyncEnabled" : false,
+    "terminateSessionsOnQuit" : false,
+    "updateChannel" : "tip",
+    "updatesAutomaticallyCheckForUpdates" : true,
+    "updatesAutomaticallyDownloadUpdates" : false
+  },
+  "pinnedWorktreeIDs" : [
+
+  ],
+  "remoteRepositoryRoots" : [
+
+  ],
+  "repositories" : {
+    "\/Users\/lad1337\/.dotfiles\/" : {
+      "archiveScript" : "",
+      "deleteScript" : "",
+      "openActionID" : "auto",
+      "runScript" : "",
+      "scripts" : [
+
+      ],
+      "setupScript" : ""
+    },
+    "\/Users\/lad1337\/workspace\/" : {
+      "archiveScript" : "",
+      "deleteScript" : "",
+      "openActionID" : "auto",
+      "runScript" : "",
+      "scripts" : [
+
+      ],
+      "setupScript" : ""
+    },
+    "\/Users\/lad1337\/workspace\/architecture\/" : {
+      "archiveScript" : "",
+      "deleteScript" : "",
+      "openActionID" : "auto",
+      "runScript" : "",
+      "scripts" : [
+
+      ],
+      "setupScript" : ""
+    },
+    "\/Users\/lad1337\/workspace\/autoapproval\/" : {
+      "archiveScript" : "",
+      "deleteScript" : "",
+      "openActionID" : "auto",
+      "runScript" : "",
+      "scripts" : [
+
+      ],
+      "setupScript" : ""
+    },
+    "\/Users\/lad1337\/workspace\/db-stat-scraper\/" : {
+      "archiveScript" : "",
+      "deleteScript" : "",
+      "openActionID" : "editor",
+      "runScript" : "",
+      "scripts" : [
+
+      ],
+      "setupScript" : ""
+    },
+    "\/Users\/lad1337\/workspace\/exmox-claude-base\/" : {
+      "archiveScript" : "",
+      "deleteScript" : "",
+      "openActionID" : "auto",
+      "runScript" : "",
+      "scripts" : [
+
+      ],
+      "setupScript" : ""
+    },
+    "\/Users\/lad1337\/workspace\/fraud-service\/" : {
+      "archiveScript" : "",
+      "deleteScript" : "",
+      "openActionID" : "auto",
+      "runScript" : "",
+      "scripts" : [
+
+      ],
+      "setupScript" : ""
+    },
+    "\/Users\/lad1337\/workspace\/load-test\/" : {
+      "archiveScript" : "",
+      "deleteScript" : "",
+      "openActionID" : "auto",
+      "runScript" : "",
+      "scripts" : [
+
+      ],
+      "setupScript" : ""
+    },
+    "\/Users\/lad1337\/workspace\/marketing-service\/" : {
+      "archiveScript" : "",
+      "deleteScript" : "",
+      "openActionID" : "auto",
+      "runScript" : "",
+      "scripts" : [
+
+      ],
+      "setupScript" : ""
+    },
+    "\/Users\/lad1337\/workspace\/participation-service\/" : {
+      "archiveScript" : "",
+      "deleteScript" : "",
+      "openActionID" : "auto",
+      "runScript" : "",
+      "scripts" : [
+
+      ],
+      "setupScript" : ""
+    },
+    "\/Users\/lad1337\/workspace\/publishing-service\/" : {
+      "archiveScript" : "",
+      "deleteScript" : "",
+      "openActionID" : "auto",
+      "runScript" : "",
+      "scripts" : [
+
+      ],
+      "setupScript" : ""
+    },
+    "\/Users\/lad1337\/workspace\/shared-backend\/" : {
+      "archiveScript" : "",
+      "deleteScript" : "",
+      "openActionID" : "auto",
+      "runScript" : "",
+      "scripts" : [
+
+      ],
+      "setupScript" : ""
+    },
+    "\/Users\/lad1337\/workspace\/toedscruel\/" : {
+      "archiveScript" : "",
+      "deleteScript" : "",
+      "openActionID" : "auto",
+      "runScript" : "",
+      "scripts" : [
+
+      ],
+      "setupScript" : ""
+    },
+    "\/Users\/lad1337\/workspace\/transaction-service\/" : {
+      "archiveScript" : "",
+      "deleteScript" : "",
+      "openActionID" : "auto",
+      "runScript" : "",
+      "scripts" : [
+
+      ],
+      "setupScript" : ""
+    },
+    "\/Users\/lad1337\/workspace\/user-service\/" : {
+      "archiveScript" : "",
+      "deleteScript" : "",
+      "openActionID" : "auto",
+      "runScript" : "",
+      "scripts" : [
+
+      ],
+      "setupScript" : ""
+    }
+  },
+  "repositoryRoots" : [
+    "\/Users\/lad1337\/workspace\/db-stat-scraper\/",
+    "\/Users\/lad1337\/workspace\/user-service\/",
+    "\/Users\/lad1337\/workspace\/participation-service\/",
+    "\/Users\/lad1337\/workspace\/autoapproval\/",
+    "\/Users\/lad1337\/.dotfiles\/",
+    "\/Users\/lad1337\/workspace\/supacode\/",
+    "\/Users\/lad1337\/workspace\/",
+    "\/Users\/lad1337\/workspace\/load-test\/",
+    "\/Users\/lad1337\/workspace\/publishing-service\/",
+    "\/Users\/lad1337\/workspace\/transaction-service\/",
+    "\/Users\/lad1337\/workspace\/marketing-service\/",
+    "\/Users\/lad1337\/workspace\/member-web\/",
+    "\/Users\/lad1337\/workspace\/toedscruel\/",
+    "\/Users\/lad1337\/workspace\/fraud-service\/",
+    "\/Users\/lad1337\/workspace\/architecture\/",
+    "\/Users\/lad1337\/workspace\/exmox-claude-base\/",
+    "\/Users\/lad1337\/workspace\/shared-backend\/"
+  ]
+}
