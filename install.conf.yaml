@@ -7,6 +7,8 @@
       description: Installing submodules
 - clean:
     - "~"
+- create:
+    - ~/.claude/themes
 - link:
     ~/.config/nvim: config/nvim
     ~/.config/direnv: config/direnv
@@ -71,4 +73,6 @@
     - command: uv tool install uv-virtualenvwrapper
       description: Install uv-virtualenvwrapper
     - command: ~/.dotfiles/bin/bake-colors
-      description: Bake colors into git config
+      description: Bake colors
+    - command: ~/.dotfiles/bin/_supacode-sync push
+      description: Sync Supacode global settings
