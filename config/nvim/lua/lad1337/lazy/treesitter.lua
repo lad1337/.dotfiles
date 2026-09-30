@@ -29,6 +29,7 @@ return {
         'go',
         'rust',
         'sql',
+        'make',
       }
       for _, parser in ipairs(parsers) do
         pcall(function()

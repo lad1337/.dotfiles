@@ -16,10 +16,6 @@
     "cursor": "#EDFF00",
     "promptBorder": "#900048",
     "bashBorder": "#ff0e82",
-    "autoAccept": "#2ac3de",
-    "diffAdded": "#00ffb7",
-    "diffRemoved": "#ff0e82",
-    "diffAddedWord": "#2ac3de",
-    "diffRemovedWord": "#900048"
+    "autoAccept": "#2ac3de"
   }
 }

@@ -430,8 +430,8 @@ selection-background = $COLOR_MAGENTA2
 selection-foreground = $COLOR_FG
 EOF
 )"
-awk -v block="$GHOSTTY_COLORS" '
-  /^# >>> bake-colors:ghostty-colors/ { print; print block; skip=1; next }
+GHOSTTY_COLORS="$GHOSTTY_COLORS" awk '
+  /^# >>> bake-colors:ghostty-colors/ { print; print ENVIRON["GHOSTTY_COLORS"]; skip=1; next }
   /^# <<< bake-colors:ghostty-colors/ { skip=0 }
   !skip { print }
 ' "$GHOSTTY_CONFIG" > "$GHOSTTY_CONFIG.tmp" && mv "$GHOSTTY_CONFIG.tmp" "$GHOSTTY_CONFIG"
@@ -459,11 +459,7 @@ cat > "$DOTFILES_DIR/config/claude/themes/lad1337-neon.json" << EOF
     "cursor": "$COLOR_YELLOW",
     "promptBorder": "$COLOR_MAGENTA2",
     "bashBorder": "$COLOR_MAGENTA",
-    "autoAccept": "$COLOR_CYAN",
-    "diffAdded": "$COLOR_GREEN",
-    "diffRemoved": "$COLOR_MAGENTA",
-    "diffAddedWord": "$COLOR_CYAN",
-    "diffRemovedWord": "$COLOR_MAGENTA2"
+    "autoAccept": "$COLOR_CYAN"
   }
 }
 EOF
