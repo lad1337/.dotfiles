@@ -21,7 +21,8 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
-      lazygit = { enabled = true },
+      -- configure=false: use config/lazygit theme instead of one generated from nvim highlights
+      lazygit = { enabled = true, configure = false },
       bigfile = { enabled = true },
       ---@class snacks.indent.Config
       ---@field enabled? boolean
