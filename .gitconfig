@@ -60,9 +60,11 @@
   # reset
     unstage = reset HEAD              # remove files from index (tracking)
     uncommit = reset --soft HEAD^     # go back before last commit, with files in uncommitted state
+    uncommit-to = "!f() { cur=$(git rev-parse --abbrev-ref HEAD) && git switch -c \"$1\" && git branch -f \"$cur\" HEAD~1; }; f"  # move last commit onto new branch <name>, rewind old branch
     delete-remote-tag = push --delete origin
     nehma = checkout
 	stash = stash --all
+	mr = !glab mr view --web
 [rerere]
 	enabled = true
 [include]
