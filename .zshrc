@@ -7,7 +7,7 @@ export GOPATH="$HOME/.gopath"
 export GOBIN="$GOPATH/bin"
 export PATH=/opt/homebrew/bin:$PATH
 export PATH=/opt/homebrew/opt/python@3.13/libexec/bin:$PATH
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$HOME/bin:$DOT/bin:$HOME/.local/bin:$HOME/.poetry/bin:$GOBIN:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$HOME/bin:$DOT/bin:$HOME/.local/bin:$HOME/.bun/bin:$GOBIN:$PATH"
 # not seeting theme as the plugin is installed outside of the ZSH/plugin dir
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_CUSTOM="$HOME/.dotfiles/oh-my-zsh/custom"
