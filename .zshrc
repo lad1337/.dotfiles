@@ -52,23 +52,6 @@ export LANG=en_GB.UTF-8
 source ~/.dotfiles/colors.sh
 
 
-# Git colors (git config doesn't support env vars, so set via commands)
-git config --global color.status.added "$COLOR_CYAN"
-git config --global color.status.changed "$COLOR_YELLOW"
-git config --global color.status.untracked "$COLOR_MAGENTA"
-# git-delta colors
-git config --global delta.minus-style "syntax \"#3a1830\""
-git config --global delta.minus-emph-style "black $COLOR_MAGENTA2"
-git config --global delta.plus-style "syntax \"#1a3a2a\""
-git config --global delta.plus-emph-style "black $COLOR_CYAN"
-git config --global delta.line-numbers-minus-style "$COLOR_MAGENTA"
-git config --global delta.line-numbers-plus-style "$COLOR_CYAN"
-git config --global delta.line-numbers-zero-style "#565f89"
-git config --global delta.commit-decoration-style "bold $COLOR_YELLOW box ul"
-git config --global delta.file-style "bold $COLOR_PURPLE ul"
-git config --global delta.hunk-header-decoration-style "$COLOR_MAGENTA box"
-git config --global delta.hunk-header-style "file line-number $COLOR_PURPLE"
-
 # LS_COLORS (uses 24-bit true color)
 export LS_COLORS="di=$(hex_to_ansi $COLOR_DIRECTORY):ex=$(hex_to_ansi $COLOR_EXECUTABLE):ln=$(hex_to_ansi $COLOR_SYMLINK):*.tar=$(hex_to_ansi $COLOR_ARCHIVE):*.gz=$(hex_to_ansi $COLOR_ARCHIVE):*.zip=$(hex_to_ansi $COLOR_ARCHIVE):*.7z=$(hex_to_ansi $COLOR_ARCHIVE):*.rar=$(hex_to_ansi $COLOR_ARCHIVE)"
 

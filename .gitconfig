@@ -22,10 +22,8 @@
 	file-style = "bold #7c3aed ul"
 	hunk-header-decoration-style = "#ff0e82 box"
 	hunk-header-style = "file line-number #7c3aed"
-    # colors set dynamically in .zshrc from COLOR_* vars
 [delta "decorations"]
     file-decoration-style = none
-    # colors set dynamically in .zshrc from COLOR_* vars
 [merge]
     keepBackup = false
 	tool = nvimdiff
@@ -71,7 +69,7 @@
     path = ~/.gitconfig.local
 [includeIf "gitdir:~/.dotfiles/"]
     path = ~/.dotfiles/.gitconfig.local
-# [color "status"] and [color "decorate"] set by install script from colors.sh
+# colors below are written by bin/bake-colors from colors.sh
 [color "status"]
 	added = "#2ac3de"
 	changed = "#EDFF00"
